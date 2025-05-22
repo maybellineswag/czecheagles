@@ -1,0 +1,10 @@
+<svg width="1920" height="1080" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="#1a1a1a"/>
+  <rect x="100" y="100" width="1720" height="880" fill="#333" stroke="#555" stroke-width="4"/>
+  <text x="50%" y="45%" font-family="Arial" font-size="64" fill="#fff" text-anchor="middle" dominant-baseline="middle">
+    MMA GYM HERO IMAGE
+  </text>
+  <text x="50%" y="55%" font-family="Arial" font-size="40" fill="#95D600" text-anchor="middle" dominant-baseline="middle">
+    TRÉNUJ. BOJUJ. VÍTĚZ.
+  </text>
+</svg> 
