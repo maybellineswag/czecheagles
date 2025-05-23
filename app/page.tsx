@@ -32,7 +32,15 @@ const FadeInSection = ({ children, delay = 0 }) => {
       animate={controls}
       variants={{
         hidden: { opacity: 0, y: 50 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.6, delay } },
+        visible: {
+          opacity: 1,
+          y: 0,
+          transition: {
+            duration: 1.1,
+            delay,
+            ease: [0.22, 1, 0.36, 1] // easeOutCubic
+          }
+        },
       }}
     >
       {children}
@@ -42,13 +50,21 @@ const FadeInSection = ({ children, delay = 0 }) => {
 
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [openBenefit, setOpenBenefit] = useState<number | null>(null)
+  const [isMobile, setIsMobile] = useState(false)
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768)
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
 
   return (
     <div className="flex min-h-screen flex-col">
       <header className="sticky top-0 z-50 w-full border-b bg-black/95 backdrop-blur supports-[backdrop-filter]:bg-black/60">
         <div className="container flex h-16 items-center justify-between">
-          <div className="flex items-center gap-2 font-bold text-xl text-white">
-            <span>CZECH EAGLES MMA</span>
+          <div className="flex items-center font-bold text-white px-2 py-1 md:px-0 md:py-0 whitespace-nowrap text-base sm:text-lg md:text-xl" style={{lineHeight:1}}>
+            <span className="block">CZECH EAGLES MMA</span>
           </div>
           <nav className="hidden md:flex gap-6">
             <Link href="#about" className="text-sm font-medium text-white transition-colors hover:text-green-500">
@@ -77,7 +93,6 @@ export default function Home() {
             </Link>
           </nav>
           <div className="flex items-center gap-4">
-            <Button className="bg-green-600 hover:bg-green-700 text-white">Připojte se</Button>
             <button
               className="md:hidden text-white"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -150,7 +165,7 @@ export default function Home() {
         )}
       </header>
       <main className="flex-1">
-        <section className="relative w-full py-24 md:py-32 lg:py-40 xl:py-48 flex items-center justify-center overflow-hidden">
+        <section className="relative w-full py-20 sm:py-24 md:py-32 lg:py-40 xl:py-48 flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0 z-0">
             <div className="absolute inset-0 bg-black/70 z-10"></div>
             <video
@@ -164,23 +179,23 @@ export default function Home() {
             </video>
           </div>
           <motion.div
-            className="container px-4 md:px-6 z-20 text-center"
+            className="container px-4 sm:px-6 md:px-8 z-20 text-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
             <div className="flex flex-col items-center justify-center space-y-4">
-              <div className="space-y-2 max-w-3xl mx-auto">
-                <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl text-white">
+              <div className="space-y-2 max-w-xs sm:max-w-2xl md:max-w-3xl mx-auto px-2 sm:px-0">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tighter text-white leading-tight sm:leading-tight md:leading-tight">
                   TRÉNUJ. BOJUJ. VÍTĚZ.
                 </h1>
-                <p className="text-xl text-gray-300 md:text-2xl max-w-[800px] mx-auto">
+                <p className="text-base sm:text-lg md:text-2xl text-gray-300 max-w-xs sm:max-w-[600px] md:max-w-[800px] mx-auto mt-4 sm:mt-2">
                   Czech Eagles MMA nabízí špičkový trénink pro všechny úrovně dovedností. Připojte se k naší komunitě a
                   transformujte své tělo i mysl.
                 </p>
               </div>
-              <div className="pt-6">
-                <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white text-lg px-8 py-6">
+              <div className="pt-4 sm:pt-6 flex justify-center">
+                <Button size="sm" className="bg-green-600 hover:bg-green-700 text-white w-auto mx-auto text-sm sm:text-base md:text-lg px-6 py-3 md:px-8 md:py-6 mt-4">
                   Rezervujte si první trénink ještě dnes
                 </Button>
               </div>
@@ -207,14 +222,15 @@ export default function Home() {
                           Zobrazit dokument
                         </Button>
                       </DialogTrigger>
-                      <DialogContent className="sm:max-w-[800px] bg-neutral-900 border-green-600">
+                      <DialogContent className="sm:max-w-[800px] bg-neutral-900 border-green-600 max-w-xs w-full p-2 sm:p-6 max-h-[80vh] overflow-auto">
                         <DialogTitle className="sr-only">Dokument podpory města Teplice</DialogTitle>
-                        <div className="relative w-full h-[600px]">
+                        <div className="relative w-full h-[60vw] min-h-[200px] max-h-[60vh] sm:h-[600px] sm:max-h-[600px] mx-auto">
                           <Image
                             src="/document-image.jpg"
                             alt="Dokument podpory města Teplice"
                             fill
                             className="object-contain"
+                            sizes="(max-width: 640px) 90vw, 600px"
                           />
                         </div>
                       </DialogContent>
@@ -242,75 +258,58 @@ export default function Home() {
                 </div>
               </div>
             </FadeInSection>
-            <div className="grid grid-cols-1 gap-6 mt-12 md:grid-cols-2 lg:grid-cols-3">
-              <FadeInSection delay={0.1}>
-                <Card className="bg-neutral-900 border-green-600 text-white h-[200px] flex flex-col px-2">
-                  <CardHeader className="pb-2">
-                    <CardTitle className="text-green-500">Komplexní kondice</CardTitle>
-                  </CardHeader>
-                  <CardContent className="flex-grow px-4">
-                    <p>
-                      MMA trénink zapojuje všechny hlavní svalové skupiny, zlepšuje sílu, flexibilitu a kardiovaskulární
-                      zdraví.
-                    </p>
-                  </CardContent>
-                </Card>
-              </FadeInSection>
-              <FadeInSection delay={0.2}>
-                <Card className="bg-neutral-900 border-green-600 text-white h-[200px] flex flex-col px-2">
-                  <CardHeader className="pb-2">
-                    <CardTitle className="text-green-500">Snížení stresu</CardTitle>
-                  </CardHeader>
-                  <CardContent className="flex-grow px-4">
-                    <p>
-                      Trénink uvolňuje endorfiny, které bojují proti stresu a úzkosti. Soustředění během cvičení pomáhá
-                      vyčistit mysl.
-                    </p>
-                  </CardContent>
-                </Card>
-              </FadeInSection>
-              <FadeInSection delay={0.3}>
-                <Card className="bg-neutral-900 border-green-600 text-white h-[200px] flex flex-col px-2">
-                  <CardHeader className="pb-2">
-                    <CardTitle className="text-green-500">Zlepšená koordinace</CardTitle>
-                  </CardHeader>
-                  <CardContent className="flex-grow px-4">
-                    <p>Grappling a úderové techniky zlepšují rovnováhu, prostorové vnímání a koordinaci oko-ruka.</p>
-                  </CardContent>
-                </Card>
-              </FadeInSection>
-              <FadeInSection delay={0.4}>
-                <Card className="bg-neutral-900 border-green-600 text-white h-[200px] flex flex-col px-2">
-                  <CardHeader className="pb-2">
-                    <CardTitle className="text-green-500">Dovednosti sebeobrany</CardTitle>
-                  </CardHeader>
-                  <CardContent className="flex-grow px-4">
-                    <p>Naučte se praktické techniky, které vám pomohou chránit sebe sama a budovat sebevědomí.</p>
-                  </CardContent>
-                </Card>
-              </FadeInSection>
-              <FadeInSection delay={0.5}>
-                <Card className="bg-neutral-900 border-green-600 text-white h-[200px] flex flex-col px-2">
-                  <CardHeader className="pb-2">
-                    <CardTitle className="text-green-500">Disciplína a soustředění</CardTitle>
-                  </CardHeader>
-                  <CardContent className="flex-grow px-4">
-                    <p>
-                      Trénink bojových umění vštěpuje mentální disciplínu, která se přenáší do dalších oblastí života.
-                    </p>
-                  </CardContent>
-                </Card>
-              </FadeInSection>
-              <FadeInSection delay={0.6}>
-                <Card className="bg-neutral-900 border-green-600 text-white h-[200px] flex flex-col px-2">
-                  <CardHeader className="pb-2">
-                    <CardTitle className="text-green-500">Komunita a podpora</CardTitle>
-                  </CardHeader>
-                  <CardContent className="flex-grow px-4">
-                    <p>Připojte se k podpůrné komunitě stejně smýšlejících lidí, kteří vás budou motivovat.</p>
-                  </CardContent>
-                </Card>
-              </FadeInSection>
+            <div className={"md:grid md:grid-cols-3 md:gap-6 mt-8 md:mt-12 flex flex-col gap-2 md:flex-row"}>
+              {[
+                {
+                  title: "Komplexní kondice",
+                  desc: "MMA trénink zapojuje všechny hlavní svalové skupiny, zlepšuje sílu, flexibilitu a kardiovaskulární zdraví."
+                },
+                {
+                  title: "Snížení stresu",
+                  desc: "Trénink uvolňuje endorfiny, které bojují proti stresu a úzkosti. Soustředění během cvičení pomáhá vyčistit mysl."
+                },
+                {
+                  title: "Zlepšená koordinace",
+                  desc: "Grappling a úderové techniky zlepšují rovnováhu, prostorové vnímání a koordinaci oko-ruka."
+                },
+                {
+                  title: "Dovednosti sebeobrany",
+                  desc: "Naučte se praktické techniky, které vám pomohou chránit sebe sama a budovat sebevědomí."
+                },
+                {
+                  title: "Disciplína a soustředění",
+                  desc: "Trénink bojových umění vštěpuje mentální disciplínu, která se přenáší do dalších oblastí života."
+                },
+                {
+                  title: "Komunita a podpora",
+                  desc: "Připojte se k podpůrné komunitě stejně smýšlejících lidí, kteří vás budou motivovat."
+                }
+              ].map((item, idx) => (
+                <div
+                  key={item.title}
+                  className={`bg-neutral-900 border-green-600 text-white rounded-md border min-h-[56px] md:min-h-[120px] py-3 md:py-4 px-2 md:px-4 flex flex-col justify-start items-center transition-all duration-200 cursor-pointer ${isMobile ? 'mb-2' : ''}`}
+                  onClick={() => isMobile ? setOpenBenefit(openBenefit === idx ? null : idx) : null}
+                >
+                  <div className="text-green-500 text-base md:text-lg font-bold leading-tight mb-1 text-center w-full">
+                    {item.title}
+                  </div>
+                  {/* Animated expand/collapse for mobile */}
+                  <div
+                    className={`w-full overflow-hidden transition-[max-height,opacity] duration-300 ease-in-out ${isMobile ? 'text-center' : ''}`}
+                    style={isMobile ? {
+                      maxHeight: openBenefit === idx ? 200 : 0,
+                      opacity: openBenefit === idx ? 1 : 0,
+                      marginTop: openBenefit === idx ? 8 : 0
+                    } : {}}
+                  >
+                    {(!isMobile || openBenefit === idx) && (
+                      <div className="text-xs md:text-base text-white">
+                        {item.desc}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -329,73 +328,73 @@ export default function Home() {
             </FadeInSection>
             <div className="grid grid-cols-1 gap-6 mt-12 md:grid-cols-2 lg:grid-cols-3">
               <FadeInSection delay={0.1}>
-                <Card className="bg-neutral-900 border-green-600 text-white h-[350px] flex flex-col">
+                <Card className="bg-neutral-900 border-green-600 text-white flex flex-col rounded-xl p-4 sm:p-6 mb-4 max-w-full">
                   <CardHeader>
                     <div className="flex items-center gap-4">
-                      <div className="rounded-full bg-green-600 w-12 h-12 flex items-center justify-center text-white font-bold">
+                      <div className="rounded-full bg-green-600 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-white font-bold text-base sm:text-lg">
                         JN
                       </div>
                       <div>
-                        <CardTitle className="text-white">Jan Novák</CardTitle>
-                        <CardDescription className="text-gray-400">Člen 2 roky</CardDescription>
+                        <CardTitle className="text-white text-lg sm:text-xl leading-tight">Jan Novák</CardTitle>
+                        <CardDescription className="text-gray-400 text-xs sm:text-sm">Člen 2 roky</CardDescription>
                       </div>
                     </div>
                   </CardHeader>
-                  <CardContent className="flex-grow flex flex-col justify-between">
-                    <p className="italic">
+                  <CardContent className="flex-grow flex flex-col justify-between mt-2">
+                    <p className="italic text-sm sm:text-base leading-relaxed mb-4">
                       "Když jsem poprvé přišel, byl jsem mimo formu a nervózní, ale trenéři mě od prvního dne přijali.
                       Teď jsem v nejlepší formě svého života a našel jsem si přátele na celý život. Czech Eagles MMA
                       změnilo můj život."
                     </p>
-                    <div className="flex mt-4 text-yellow-500">
+                    <div className="flex mt-2 text-yellow-500 text-lg">
                       <span>★★★★★</span>
                     </div>
                   </CardContent>
                 </Card>
               </FadeInSection>
               <FadeInSection delay={0.2}>
-                <Card className="bg-neutral-900 border-green-600 text-white h-[350px] flex flex-col">
+                <Card className="bg-neutral-900 border-green-600 text-white flex flex-col rounded-xl p-4 sm:p-6 mb-4 max-w-full">
                   <CardHeader>
                     <div className="flex items-center gap-4">
-                      <div className="rounded-full bg-green-600 w-12 h-12 flex items-center justify-center text-white font-bold">
+                      <div className="rounded-full bg-green-600 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-white font-bold text-base sm:text-lg">
                         KP
                       </div>
                       <div>
-                        <CardTitle className="text-white">Karolína Procházková</CardTitle>
-                        <CardDescription className="text-gray-400">Členka 1 rok</CardDescription>
+                        <CardTitle className="text-white text-lg sm:text-xl leading-tight">Karolína Procházková</CardTitle>
+                        <CardDescription className="text-gray-400 text-xs sm:text-sm">Členka 1 rok</CardDescription>
                       </div>
                     </div>
                   </CardHeader>
-                  <CardContent className="flex-grow flex flex-col justify-between">
-                    <p className="italic">
+                  <CardContent className="flex-grow flex flex-col justify-between mt-2">
+                    <p className="italic text-sm sm:text-base leading-relaxed mb-4">
                       "Jako žena jsem váhala s připojením k MMA tělocvičně, ale Czech Eagles byli neuvěřitelně vstřícní.
                       Dovednosti sebeobrany, které jsem se naučila, mi dodaly sebevědomí a tréninky jsou úžasné!"
                     </p>
-                    <div className="flex mt-4 text-yellow-500">
+                    <div className="flex mt-2 text-yellow-500 text-lg">
                       <span>★★★★★</span>
                     </div>
                   </CardContent>
                 </Card>
               </FadeInSection>
               <FadeInSection delay={0.3}>
-                <Card className="bg-neutral-900 border-green-600 text-white h-[350px] flex flex-col">
+                <Card className="bg-neutral-900 border-green-600 text-white flex flex-col rounded-xl p-4 sm:p-6 mb-4 max-w-full">
                   <CardHeader>
                     <div className="flex items-center gap-4">
-                      <div className="rounded-full bg-green-600 w-12 h-12 flex items-center justify-center text-white font-bold">
+                      <div className="rounded-full bg-green-600 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-white font-bold text-base sm:text-lg">
                         MK
                       </div>
                       <div>
-                        <CardTitle className="text-white">Martin Kovář</CardTitle>
-                        <CardDescription className="text-gray-400">Člen 3 roky</CardDescription>
+                        <CardTitle className="text-white text-lg sm:text-xl leading-tight">Martin Kovář</CardTitle>
+                        <CardDescription className="text-gray-400 text-xs sm:text-sm">Člen 3 roky</CardDescription>
                       </div>
                     </div>
                   </CardHeader>
-                  <CardContent className="flex-grow flex flex-col justify-between">
-                    <p className="italic">
+                  <CardContent className="flex-grow flex flex-col justify-between mt-2">
+                    <p className="italic text-sm sm:text-base leading-relaxed mb-4">
                       "Trénoval jsem v několika tělocvičnách po celé Evropě a Czech Eagles MMA vyniká svým
                       profesionálním koučováním a přátelskou atmosférou. Technické instrukce jsou světové úrovně."
                     </p>
-                    <div className="flex mt-4 text-yellow-500">
+                    <div className="flex mt-2 text-yellow-500 text-lg">
                       <span>★★★★★</span>
                     </div>
                   </CardContent>
@@ -418,10 +417,10 @@ export default function Home() {
                 </div>
               </div>
             </FadeInSection>
-            <div className="grid grid-cols-1 gap-6 mt-12 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-12">
               <FadeInSection delay={0.1}>
-                <Card className="overflow-hidden bg-neutral-900 border-green-600 text-white">
-                  <div className="relative h-60 w-full">
+                <Card className="overflow-hidden bg-neutral-900 border-green-600 text-white flex flex-col h-56">
+                  <div className="relative h-32 w-full">
                     <Image
                       src="/placeholder.svg?height=240&width=360"
                       fill
@@ -429,24 +428,15 @@ export default function Home() {
                       className="object-cover"
                     />
                   </div>
-                  <CardHeader>
-                    <CardTitle className="text-green-500">Jakub Novotný</CardTitle>
-                    <CardDescription className="text-gray-300">Hlavní MMA trenér</CardDescription>
+                  <CardHeader className="flex-1 flex flex-col justify-end items-start p-4">
+                    <CardTitle className="text-white text-base sm:text-lg font-bold leading-tight">Jakub Novotný</CardTitle>
+                    <CardDescription className="text-gray-300 text-xs sm:text-sm mt-1">Hlavní MMA trenér</CardDescription>
                   </CardHeader>
-                  <CardContent>
-                    <p>
-                      Bývalý UFC zápasník s 15 lety profesionálních zkušeností. Černý pás v brazilském jiu-jitsu a
-                      certifikovaný specialista na sílu a kondici.
-                    </p>
-                    <div className="flex items-center mt-4 space-x-2">
-                      <span className="text-sm text-green-500 font-semibold">UFC veterán</span>
-                    </div>
-                  </CardContent>
                 </Card>
               </FadeInSection>
               <FadeInSection delay={0.2}>
-                <Card className="overflow-hidden bg-neutral-900 border-green-600 text-white">
-                  <div className="relative h-60 w-full">
+                <Card className="overflow-hidden bg-neutral-900 border-green-600 text-white flex flex-col h-56">
+                  <div className="relative h-32 w-full">
                     <Image
                       src="/placeholder.svg?height=240&width=360"
                       fill
@@ -454,45 +444,29 @@ export default function Home() {
                       className="object-cover"
                     />
                   </div>
-                  <CardHeader>
-                    <CardTitle className="text-green-500">Tereza Svobodová</CardTitle>
-                    <CardDescription className="text-gray-300">Grappling specialistka</CardDescription>
+                  <CardHeader className="flex-1 flex flex-col justify-end items-start p-4">
+                    <CardTitle className="text-white text-base sm:text-lg font-bold leading-tight">Tereza Svobodová</CardTitle>
+                    <CardDescription className="text-gray-300 text-xs sm:text-sm mt-1">Grappling specialistka</CardDescription>
                   </CardHeader>
-                  <CardContent>
-                    <p>
-                      Účastnice ADCC mistrovství světa s několika národními tituly. Hnědý pás v brazilském jiu-jitsu s
-                      10 lety zkušeností s výukou.
-                    </p>
-                    <div className="flex items-center mt-4 space-x-2">
-                      <span className="text-sm text-green-500 font-semibold">Národní šampionka</span>
-                    </div>
-                  </CardContent>
                 </Card>
               </FadeInSection>
               <FadeInSection delay={0.3}>
-                <Card className="overflow-hidden bg-neutral-900 border-green-600 text-white">
-                  <div className="relative h-60 w-full">
-                    <Image
-                      src="/placeholder.svg?height=240&width=360"
-                      fill
-                      alt="Trenér David"
-                      className="object-cover"
-                    />
-                  </div>
-                  <CardHeader>
-                    <CardTitle className="text-green-500">David Černý</CardTitle>
-                    <CardDescription className="text-gray-300">Trenér úderů</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <p>
-                      Bývalý profesionální Muay Thai bojovník s více než 20 zápasy. Certifikovaný v oblasti sportovní
-                      výživy a technik prevence zranění.
-                    </p>
-                    <div className="flex items-center mt-4 space-x-2">
-                      <span className="text-sm text-green-500 font-semibold">Muay Thai šampion</span>
+                <div className="col-span-2 mx-auto sm:col-span-1">
+                  <Card className="overflow-hidden bg-neutral-900 border-green-600 text-white flex flex-col h-56 w-full max-w-xs">
+                    <div className="relative h-32 w-full">
+                      <Image
+                        src="/placeholder.svg?height=240&width=360"
+                        fill
+                        alt="Trenér David"
+                        className="object-cover"
+                      />
                     </div>
-                  </CardContent>
-                </Card>
+                    <CardHeader className="flex-1 flex flex-col justify-end items-start p-4">
+                      <CardTitle className="text-white text-base sm:text-lg font-bold leading-tight">David Černý</CardTitle>
+                      <CardDescription className="text-gray-300 text-xs sm:text-sm mt-1">Trenér úderů</CardDescription>
+                    </CardHeader>
+                  </Card>
+                </div>
               </FadeInSection>
             </div>
           </div>
