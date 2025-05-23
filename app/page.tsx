@@ -999,9 +999,10 @@ export default function Home() {
               </FadeInSection>
               <FadeInSection delay={0.2}>
                 <div className="relative h-[300px] overflow-hidden rounded-lg">
+                  {/* Mapy.cz embed placeholder - replace src with the correct Mapy.cz embed URL later */}
                   <iframe
-                    title="Mapa - Czech Eagles MMA Teplice"
-                    src="https://www.google.com/maps?q=Bojovnick%C3%A1+123,+Teplice,+%C4%8Cesk%C3%A1+republika&output=embed"
+                    title="Mapa - Czech Eagles MMA Teplice (Mapy.cz)"
+                    src="https://frame.mapy.cz/s/placeholder" // TODO: Replace with actual Mapy.cz embed URL
                     width="100%"
                     height="100%"
                     style={{ border: 0, width: '100%', height: '100%' }}
