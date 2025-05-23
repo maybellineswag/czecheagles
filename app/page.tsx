@@ -725,7 +725,7 @@ export default function Home() {
                       </div>
                     </div>
                   </CardHeader>
-                  <CardContent className="flex-grow flex flex-col justify-between mt-2 h-full">
+                  <CardContent className="flex-grow flex flex-col justify-between h-full">
                     <p className="italic text-sm sm:text-base leading-relaxed mb-4">
                       "Když jsem poprvé přišel, byl jsem mimo formu a nervózní, ale trenéři mě od prvního dne přijali.
                       Teď jsem v nejlepší formě svého života a našel jsem si přátele na celý život. Czech Eagles MMA
@@ -750,7 +750,7 @@ export default function Home() {
                       </div>
                     </div>
                   </CardHeader>
-                  <CardContent className="flex-grow flex flex-col justify-between mt-2 h-full">
+                  <CardContent className="flex-grow flex flex-col justify-between h-full">
                     <p className="italic text-sm sm:text-base leading-relaxed mb-4">
                       "Jako žena jsem váhala s připojením k MMA tělocvičně, ale Czech Eagles byli neuvěřitelně vstřícní.
                       Dovednosti sebeobrany, které jsem se naučila, mi dodaly sebevědomí a tréninky jsou úžasné!"
@@ -774,7 +774,7 @@ export default function Home() {
                       </div>
                     </div>
                   </CardHeader>
-                  <CardContent className="flex-grow flex flex-col justify-between mt-2 h-full">
+                  <CardContent className="flex-grow flex flex-col justify-between h-full">
                     <p className="italic text-sm sm:text-base leading-relaxed mb-4">
                       "Trénoval jsem v několika tělocvičnách po celé Evropě a Czech Eagles MMA vyniká svým
                       profesionálním koučováním a přátelskou atmosférou. Technické instrukce jsou světové úrovně."
