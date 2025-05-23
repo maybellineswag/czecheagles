@@ -964,12 +964,17 @@ export default function Home() {
               </FadeInSection>
               <FadeInSection delay={0.2}>
                 <div className="relative h-[300px] overflow-hidden rounded-lg">
-                  <Image
-                    src="/placeholder.svg?height=300&width=600"
-                    alt="Umístění tělocvičny"
-                    fill
-                    className="object-cover"
-                  />
+                  <iframe
+                    title="Mapa - Czech Eagles MMA Teplice"
+                    src="https://www.google.com/maps?q=Bojovnick%C3%A1+123,+Teplice,+%C4%8Cesk%C3%A1+republika&output=embed"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0, width: '100%', height: '100%' }}
+                    allowFullScreen=""
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    className="absolute inset-0 w-full h-full rounded-lg"
+                  ></iframe>
                 </div>
               </FadeInSection>
             </div>
