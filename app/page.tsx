@@ -66,7 +66,7 @@ export default function Home() {
           <div className="flex items-center font-bold text-white px-2 py-1 md:px-0 md:py-0 whitespace-nowrap text-base sm:text-lg md:text-xl" style={{lineHeight:1}}>
             <span className="block">CZECH EAGLES MMA</span>
           </div>
-          <nav className="hidden md:flex gap-6">
+          <nav className="hidden md:flex gap-6 ml-auto">
             <Link href="#about" className="text-sm font-medium text-white transition-colors hover:text-green-500">
               O nás
             </Link>
