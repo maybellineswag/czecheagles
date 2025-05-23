@@ -187,10 +187,10 @@ export default function Home() {
             <div className="flex flex-col items-center justify-center space-y-4">
               <div className="space-y-2 max-w-xs sm:max-w-2xl md:max-w-3xl mx-auto px-2 sm:px-0">
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tighter text-white leading-tight sm:leading-tight md:leading-tight">
-                  TRÉNUJ. BOJUJ. VÍTĚZ.
+                  TRÉNUJ. BOJUJ. VYHRÁVEJ.
                 </h1>
                 <p className="text-base sm:text-lg md:text-2xl text-gray-300 max-w-xs sm:max-w-[600px] md:max-w-[800px] mx-auto mt-4 sm:mt-2">
-                  Czech Eagles MMA nabízí špičkový trénink pro všechny úrovně dovedností. Připojte se k naší komunitě a
+                  Czech Eagles MMA Teplice nabízí špičkový trénink pro všechny úrovně dovedností. Připojte se k naší komunitě a
                   transformujte své tělo i mysl.
                 </p>
               </div>
@@ -210,9 +210,7 @@ export default function Home() {
                 <div className="space-y-2">
                   <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-white">O naší tělocvičně</h2>
                   <p className="max-w-[900px] text-gray-300 md:text-xl">
-                    Czech Eagles MMA byla založena s posláním poskytovat vysoce kvalitní trénink bojových umění v
-                    podpůrném prostředí. Naše špičkové zařízení se rozkládá na 1000 metrech čtverečních a zahrnuje
-                    specializované tréninkové prostory pro údery, grappling a silový trénink.
+                  Czech Eagles MMA nabízí špičkové tréninky v moderním prostoru o rozloze 1000 m². Specializované zóny pro údery, grappling i silový trénink, vše v prostředí, kde se trénuje s cílem vyhrát.
                   </p>
                   <div className="flex flex-col items-center mt-6 space-y-4">
                     <p className="text-green-500 font-semibold text-lg">S podporou statutárního města Teplice</p>
@@ -576,9 +574,6 @@ export default function Home() {
                     MMA a grappling trénink nabízí řadu fyzických a duševních zdravotních výhod, které mohou změnit váš
                     život.
                   </p>
-                  <p className="max-w-[900px] text-green-500 font-semibold md:text-xl mt-2">
-                    Nemusíte být v kondici, abyste mohli začít — stačí přijít a my vás provedeme každým krokem.
-                  </p>
                 </div>
               </div>
             </FadeInSection>
@@ -677,7 +672,7 @@ export default function Home() {
                 </div>
               </div>
             </FadeInSection>
-            <div className="grid grid-cols-1 gap-6 mt-12 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid grid-cols-1 gap-3 md:gap-6 mt-12 md:grid-cols-2 lg:grid-cols-3">
               <FadeInSection delay={0.1}>
                 <Card className="bg-neutral-900 border-green-600 text-white flex flex-col rounded-xl p-4 sm:p-6 mb-4 max-w-full">
                   <CardHeader>
@@ -760,65 +755,50 @@ export default function Home() {
             <FadeInSection>
               <div className="flex flex-col items-center justify-center space-y-4 text-center">
                 <div className="space-y-2">
-                  <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-white">Profesionální trenéři</h2>
-                  <p className="max-w-[900px] text-gray-300 md:text-xl">
-                    Náš tým se skládá ze zkušených bojovníků a certifikovaných koučů, kteří se věnují vašemu pokroku a
-                    bezpečnosti.
+                  <h2 className="text-5xl font-extrabold text-white">Profesionální trenéři</h2>
+                  <p className="max-w-2xl mx-auto text-gray-300 text-xl mt-2">
+                    Náš tým se skládá ze zkušených bojovníků a certifikovaných koučů, kteří se věnují vašemu pokroku a bezpečnosti.
                   </p>
                 </div>
               </div>
             </FadeInSection>
-            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-12">
-              <FadeInSection delay={0.1}>
-                <Card className="overflow-hidden bg-neutral-900 border-green-600 text-white flex flex-col h-56">
-                  <div className="relative h-32 w-full">
-                    <Image
-                      src="/placeholder.svg?height=240&width=360"
-                      fill
-                      alt="Trenér Jakub"
-                      className="object-cover"
-                    />
-                  </div>
-                  <CardHeader className="flex-1 flex flex-col justify-end items-start p-4">
-                    <CardTitle className="text-white text-base sm:text-lg font-bold leading-tight">Jakub Novotný</CardTitle>
-                    <CardDescription className="text-gray-300 text-xs sm:text-sm mt-1">Hlavní MMA trenér</CardDescription>
-                  </CardHeader>
-                </Card>
-              </FadeInSection>
-              <FadeInSection delay={0.2}>
-                <Card className="overflow-hidden bg-neutral-900 border-green-600 text-white flex flex-col h-56">
-                  <div className="relative h-32 w-full">
-                    <Image
-                      src="/placeholder.svg?height=240&width=360"
-                      fill
-                      alt="Trenérka Tereza"
-                      className="object-cover"
-                    />
-                  </div>
-                  <CardHeader className="flex-1 flex flex-col justify-end items-start p-4">
-                    <CardTitle className="text-white text-base sm:text-lg font-bold leading-tight">Tereza Svobodová</CardTitle>
-                    <CardDescription className="text-gray-300 text-xs sm:text-sm mt-1">Grappling specialistka</CardDescription>
-                  </CardHeader>
-                </Card>
-              </FadeInSection>
-              <FadeInSection delay={0.3}>
-                <div className="col-span-2 mx-auto sm:col-span-1">
-                  <Card className="overflow-hidden bg-neutral-900 border-green-600 text-white flex flex-col h-56 w-full max-w-xs">
-                    <div className="relative h-32 w-full">
-                      <Image
-                        src="/placeholder.svg?height=240&width=360"
-                        fill
-                        alt="Trenér David"
-                        className="object-cover"
-                      />
-                    </div>
-                    <CardHeader className="flex-1 flex flex-col justify-end items-start p-4">
-                      <CardTitle className="text-white text-base sm:text-lg font-bold leading-tight">David Černý</CardTitle>
-                      <CardDescription className="text-gray-300 text-xs sm:text-sm mt-1">Trenér úderů</CardDescription>
-                    </CardHeader>
-                  </Card>
+            <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+              {/* Jakub Novotný */}
+              <div className="flex flex-col rounded-xl border-2 border-lime-400 bg-black overflow-hidden shadow-lg">
+                <div className="bg-gray-200 w-full aspect-[4/3] flex items-center justify-center text-gray-400 text-4xl font-bold rounded-t-xl">
+                  <Image src="/placeholder.svg?height=240&width=360" alt="Jakub Novotný" width={360} height={240} className="object-cover w-full h-full rounded-t-xl" />
                 </div>
-              </FadeInSection>
+                <div className="flex flex-col flex-1 p-6">
+                  <div className="text-lime-400 font-extrabold text-2xl mb-1">Jakub Novotný</div>
+                  <div className="text-gray-300 text-base mb-3">Hlavní MMA trenér</div>
+                  <div className="text-white text-base mb-4">Bývalý UFC zápasník s 15 lety profesionálních zkušeností. Černý pás v brazilském jiu-jitsu a certifikovaný specialista na sílu a kondici.</div>
+                  <div className="mt-auto text-lime-400 font-bold text-base">UFC veterán</div>
+                </div>
+              </div>
+              {/* Tereza Svobodová */}
+              <div className="flex flex-col rounded-xl border-2 border-lime-400 bg-black overflow-hidden shadow-lg">
+                <div className="bg-gray-200 w-full aspect-[4/3] flex items-center justify-center text-gray-400 text-4xl font-bold rounded-t-xl">
+                  <Image src="/placeholder.svg?height=240&width=360" alt="Tereza Svobodová" width={360} height={240} className="object-cover w-full h-full rounded-t-xl" />
+                </div>
+                <div className="flex flex-col flex-1 p-6">
+                  <div className="text-lime-400 font-extrabold text-2xl mb-1">Tereza Svobodová</div>
+                  <div className="text-gray-300 text-base mb-3">Grappling specialistka</div>
+                  <div className="text-white text-base mb-4">Účastnice ADCC mistrovství světa s několika národními tituly. Hnědý pás v brazilském jiu-jitsu s 10 lety zkušeností s výukou.</div>
+                  <div className="mt-auto text-lime-400 font-bold text-base">Národní šampionka</div>
+                </div>
+              </div>
+              {/* David Černý */}
+              <div className="flex flex-col rounded-xl border-2 border-lime-400 bg-black overflow-hidden shadow-lg">
+                <div className="bg-gray-200 w-full aspect-[4/3] flex items-center justify-center text-gray-400 text-4xl font-bold rounded-t-xl">
+                  <Image src="/placeholder.svg?height=240&width=360" alt="David Černý" width={360} height={240} className="object-cover w-full h-full rounded-t-xl" />
+                </div>
+                <div className="flex flex-col flex-1 p-6">
+                  <div className="text-lime-400 font-extrabold text-2xl mb-1">David Černý</div>
+                  <div className="text-gray-300 text-base mb-3">Trenér úderů</div>
+                  <div className="text-white text-base mb-4">Bývalý profesionální Muay Thai bojovník s více než 20 zápasy. Certifikovaný v oblasti sportovní výživy a technik prevence zranění.</div>
+                  <div className="mt-auto text-lime-400 font-bold text-base">Muay Thai šampion</div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
