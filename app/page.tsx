@@ -711,7 +711,7 @@ export default function Home() {
                 </div>
               </div>
             </FadeInSection>
-            <div className="grid grid-cols-1 gap-3 md:gap-6 mt-12 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid grid-cols-1 gap-1 md:gap-6 mt-12 md:grid-cols-2 lg:grid-cols-3">
               <FadeInSection delay={0.1}>
                 <Card className="bg-neutral-900 border-green-600 text-white flex flex-col rounded-xl p-4 sm:p-6 mb-4 max-w-full h-full min-h-[420px]">
                   <CardHeader className="h-full">
