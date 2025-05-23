@@ -234,8 +234,8 @@ export default function Home() {
                 </p>
               </div>
               <div className="pt-4 sm:pt-6 flex justify-center">
-                <Button size="sm" className="bg-green-600 hover:bg-green-700 text-white w-auto mx-auto text-sm sm:text-base md:text-lg px-6 py-3 md:px-8 md:py-6 mt-4">
-                  Rezervujte si první trénink ještě dnes
+                <Button asChild size="sm" className="bg-green-600 hover:bg-green-700 text-white w-auto mx-auto text-sm sm:text-base md:text-lg px-6 py-3 md:px-8 md:py-6 mt-4">
+                  <a href="#contact-form">Rezervujte si první trénink ještě dnes</a>
                 </Button>
               </div>
             </div>
@@ -594,11 +594,9 @@ export default function Home() {
               </Tabs>
             </div>
             <div className="flex justify-center mt-12">
-              <FadeInSection>
-                <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white">
-                  Rezervujte si první lekci
-                </Button>
-              </FadeInSection>
+              <Button asChild size="lg" className="bg-green-600 hover:bg-green-700 text-white">
+                <a href="#contact-form">Rezervujte si první lekci</a>
+              </Button>
             </div>
           </div>
         </section>
@@ -711,9 +709,9 @@ export default function Home() {
                 </div>
               </div>
             </FadeInSection>
-            <div className="grid grid-cols-1 gap-1 md:gap-6 mt-12 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid grid-cols-1 gap-y-2 md:gap-6 mt-12 md:grid-cols-2 lg:grid-cols-3">
               <FadeInSection delay={0.1}>
-                <Card className="bg-neutral-900 border-green-600 text-white flex flex-col rounded-xl p-4 sm:p-6 mb-4 max-w-full h-full min-h-[420px]">
+                <Card className="bg-neutral-900 border-green-600 text-white flex flex-col rounded-xl p-4 sm:p-6 max-w-full h-full mb-0 md:mb-4 md:min-h-[420px]">
                   <CardHeader className="h-full">
                     <div className="flex items-center gap-4">
                       <div className="rounded-full bg-green-600 w-12 h-12 flex items-center justify-center text-white font-bold text-base sm:text-lg aspect-square">
@@ -725,7 +723,7 @@ export default function Home() {
                       </div>
                     </div>
                   </CardHeader>
-                  <CardContent className="flex-grow flex flex-col justify-between h-full">
+                  <CardContent className="flex-grow flex flex-col justify-between mt-2 h-full">
                     <p className="italic text-sm sm:text-base leading-relaxed mb-4">
                       "Když jsem poprvé přišel, byl jsem mimo formu a nervózní, ale trenéři mě od prvního dne přijali.
                       Teď jsem v nejlepší formě svého života a našel jsem si přátele na celý život. Czech Eagles MMA
@@ -738,19 +736,19 @@ export default function Home() {
                 </Card>
               </FadeInSection>
               <FadeInSection delay={0.2}>
-                <Card className="bg-neutral-900 border-green-600 text-white flex flex-col rounded-xl p-4 sm:p-6 mb-4 max-w-full h-full min-h-[420px]">
+                <Card className="bg-neutral-900 border-green-600 text-white flex flex-col rounded-xl p-4 sm:p-6 max-w-full h-full mb-0 md:mb-4 md:min-h-[420px]">
                   <CardHeader className="h-full">
                     <div className="flex items-center gap-4">
                       <div className="rounded-full bg-green-600 w-12 h-12 flex items-center justify-center text-white font-bold text-base sm:text-lg aspect-square">
                         KP
                       </div>
                       <div>
-                        <CardTitle className="text-white text-lg sm:text-xl leading-tight">Karolína Procházková</CardTitle>
+                        <CardTitle className="text-white text-lg sm:text-xl leading-tight">Jan Novak</CardTitle>
                         <CardDescription className="text-gray-400 text-xs sm:text-sm">Členka 1 rok</CardDescription>
                       </div>
                     </div>
                   </CardHeader>
-                  <CardContent className="flex-grow flex flex-col justify-between h-full">
+                  <CardContent className="flex-grow flex flex-col justify-between mt-2 h-full">
                     <p className="italic text-sm sm:text-base leading-relaxed mb-4">
                       "Jako žena jsem váhala s připojením k MMA tělocvičně, ale Czech Eagles byli neuvěřitelně vstřícní.
                       Dovednosti sebeobrany, které jsem se naučila, mi dodaly sebevědomí a tréninky jsou úžasné!"
@@ -762,7 +760,7 @@ export default function Home() {
                 </Card>
               </FadeInSection>
               <FadeInSection delay={0.3}>
-                <Card className="bg-neutral-900 border-green-600 text-white flex flex-col rounded-xl p-4 sm:p-6 mb-4 max-w-full h-full min-h-[420px]">
+                <Card className="bg-neutral-900 border-green-600 text-white flex flex-col rounded-xl p-4 sm:p-6 max-w-full h-full mb-0 md:mb-4 md:min-h-[420px]">
                   <CardHeader className="h-full">
                     <div className="flex items-center gap-4">
                       <div className="rounded-full bg-green-600 w-12 h-12 flex items-center justify-center text-white font-bold text-base sm:text-lg aspect-square">
@@ -774,7 +772,7 @@ export default function Home() {
                       </div>
                     </div>
                   </CardHeader>
-                  <CardContent className="flex-grow flex flex-col justify-between h-full">
+                  <CardContent className="flex-grow flex flex-col justify-between mt-2 h-full">
                     <p className="italic text-sm sm:text-base leading-relaxed mb-4">
                       "Trénoval jsem v několika tělocvičnách po celé Evropě a Czech Eagles MMA vyniká svým
                       profesionálním koučováním a přátelskou atmosférou. Technické instrukce jsou světové úrovně."
@@ -916,7 +914,7 @@ export default function Home() {
                       Mohou trénovat i ženy a děti?
                     </AccordionTrigger>
                     <AccordionContent className="text-gray-300 pb-4">
-                      Absolutně! Naše tělocvična je otevřená pro všechny bez ohledu na pohlaví nebo věk. Máme speciální
+                      Absolutě! Naše tělocvična je otevřená pro všechny bez ohledu na pohlaví nebo věk. Máme speciální
                       programy pro ženy a děti od 6 let. MMA a grappling jsou skvělé pro budování sebevědomí, sebeobranu
                       a fyzickou kondici pro každého. Mnoho našich členek patří mezi naše nejlepší bojovníky.
                     </AccordionContent>
@@ -945,11 +943,9 @@ export default function Home() {
                 </Accordion>
               </FadeInSection>
               <div className="flex justify-center mt-12">
-                <FadeInSection delay={0.2}>
-                  <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white">
-                    Máte další otázky? Kontaktujte nás
-                  </Button>
-                </FadeInSection>
+                <Button asChild size="lg" className="bg-green-600 hover:bg-green-700 text-white">
+                  <a href="#contact-form">Máte další otázky? Kontaktujte nás</a>
+                </Button>
               </div>
             </div>
           </div>
@@ -995,8 +991,8 @@ export default function Home() {
                     <p className="text-gray-300 mt-2">Parkování je k dispozici před naší budovou.</p>
                   </div>
                   <div className="pt-4">
-                    <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white">
-                      Naplánujte si návštěvu
+                    <Button asChild size="lg" className="bg-green-600 hover:bg-green-700 text-white">
+                      <a href="#contact-form">Naplánujte si návštěvu</a>
                     </Button>
                   </div>
                 </div>
@@ -1083,7 +1079,7 @@ export default function Home() {
 
             <div className="space-y-4">
               <h3 className="text-lg font-bold text-white">Kontaktujte nás</h3>
-              <form className="space-y-3" onSubmit={handleFormSubmit}>
+              <form id="contact-form" className="space-y-3" onSubmit={handleFormSubmit}>
                 <div className="grid grid-cols-2 gap-2">
                   <Input name="firstName" value={form.firstName} onChange={handleFormChange} required placeholder="Jméno" className="bg-neutral-800 border-neutral-700 text-white text-sm h-9" />
                   <Input name="lastName" value={form.lastName} onChange={handleFormChange} required placeholder="Příjmení" className="bg-neutral-800 border-neutral-700 text-white text-sm h-9" />
