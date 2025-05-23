@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState, ReactNode } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { Calendar, Clock, MapPin, Menu, Phone, Users, X } from "lucide-react"
@@ -14,10 +14,10 @@ import { Textarea } from "@/components/ui/textarea"
 import { Dialog, DialogContent, DialogTrigger, DialogTitle } from "@/components/ui/dialog"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 
-const FadeInSection = ({ children, delay = 0 }) => {
+const FadeInSection = ({ children, delay = 0 }: { children: ReactNode, delay?: number }) => {
   const controls = useAnimation()
   const ref = useRef(null)
-  const inView = useInView(ref, { once: true, threshold: 0.1 })
+  const inView = useInView(ref, { once: true, amount: 0.1 })
 
   useEffect(() => {
     if (inView) {
@@ -1009,7 +1009,7 @@ export default function Home() {
                     width="100%"
                     height="100%"
                     style={{ border: 0, width: '100%', height: '100%' }}
-                    allowFullScreen=""
+                    allowFullScreen
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
                     className="absolute inset-0 w-full h-full rounded-lg"
