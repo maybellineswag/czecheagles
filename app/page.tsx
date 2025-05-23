@@ -713,10 +713,10 @@ export default function Home() {
             </FadeInSection>
             <div className="grid grid-cols-1 gap-3 md:gap-6 mt-12 md:grid-cols-2 lg:grid-cols-3">
               <FadeInSection delay={0.1}>
-                <Card className="bg-neutral-900 border-green-600 text-white flex flex-col rounded-xl p-4 sm:p-6 mb-4 max-w-full">
-                  <CardHeader>
+                <Card className="bg-neutral-900 border-green-600 text-white flex flex-col rounded-xl p-4 sm:p-6 mb-4 max-w-full h-full min-h-[420px]">
+                  <CardHeader className="h-full">
                     <div className="flex items-center gap-4">
-                      <div className="rounded-full bg-green-600 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-white font-bold text-base sm:text-lg">
+                      <div className="rounded-full bg-green-600 w-12 h-12 flex items-center justify-center text-white font-bold text-base sm:text-lg aspect-square">
                         JN
                       </div>
                       <div>
@@ -725,7 +725,7 @@ export default function Home() {
                       </div>
                     </div>
                   </CardHeader>
-                  <CardContent className="flex-grow flex flex-col justify-between mt-2">
+                  <CardContent className="flex-grow flex flex-col justify-between mt-2 h-full">
                     <p className="italic text-sm sm:text-base leading-relaxed mb-4">
                       "Když jsem poprvé přišel, byl jsem mimo formu a nervózní, ale trenéři mě od prvního dne přijali.
                       Teď jsem v nejlepší formě svého života a našel jsem si přátele na celý život. Czech Eagles MMA
@@ -738,10 +738,10 @@ export default function Home() {
                 </Card>
               </FadeInSection>
               <FadeInSection delay={0.2}>
-                <Card className="bg-neutral-900 border-green-600 text-white flex flex-col rounded-xl p-4 sm:p-6 mb-4 max-w-full">
-                  <CardHeader>
+                <Card className="bg-neutral-900 border-green-600 text-white flex flex-col rounded-xl p-4 sm:p-6 mb-4 max-w-full h-full min-h-[420px]">
+                  <CardHeader className="h-full">
                     <div className="flex items-center gap-4">
-                      <div className="rounded-full bg-green-600 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-white font-bold text-base sm:text-lg">
+                      <div className="rounded-full bg-green-600 w-12 h-12 flex items-center justify-center text-white font-bold text-base sm:text-lg aspect-square">
                         KP
                       </div>
                       <div>
@@ -750,7 +750,7 @@ export default function Home() {
                       </div>
                     </div>
                   </CardHeader>
-                  <CardContent className="flex-grow flex flex-col justify-between mt-2">
+                  <CardContent className="flex-grow flex flex-col justify-between mt-2 h-full">
                     <p className="italic text-sm sm:text-base leading-relaxed mb-4">
                       "Jako žena jsem váhala s připojením k MMA tělocvičně, ale Czech Eagles byli neuvěřitelně vstřícní.
                       Dovednosti sebeobrany, které jsem se naučila, mi dodaly sebevědomí a tréninky jsou úžasné!"
@@ -762,10 +762,10 @@ export default function Home() {
                 </Card>
               </FadeInSection>
               <FadeInSection delay={0.3}>
-                <Card className="bg-neutral-900 border-green-600 text-white flex flex-col rounded-xl p-4 sm:p-6 mb-4 max-w-full">
-                  <CardHeader>
+                <Card className="bg-neutral-900 border-green-600 text-white flex flex-col rounded-xl p-4 sm:p-6 mb-4 max-w-full h-full min-h-[420px]">
+                  <CardHeader className="h-full">
                     <div className="flex items-center gap-4">
-                      <div className="rounded-full bg-green-600 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-white font-bold text-base sm:text-lg">
+                      <div className="rounded-full bg-green-600 w-12 h-12 flex items-center justify-center text-white font-bold text-base sm:text-lg aspect-square">
                         MK
                       </div>
                       <div>
@@ -774,7 +774,7 @@ export default function Home() {
                       </div>
                     </div>
                   </CardHeader>
-                  <CardContent className="flex-grow flex flex-col justify-between mt-2">
+                  <CardContent className="flex-grow flex flex-col justify-between mt-2 h-full">
                     <p className="italic text-sm sm:text-base leading-relaxed mb-4">
                       "Trénoval jsem v několika tělocvičnách po celé Evropě a Czech Eagles MMA vyniká svým
                       profesionálním koučováním a přátelskou atmosférou. Technické instrukce jsou světové úrovně."
