@@ -52,12 +52,51 @@ export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [openBenefit, setOpenBenefit] = useState<number | null>(null)
   const [isMobile, setIsMobile] = useState(false)
+  // Contact form state
+  const [form, setForm] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    interest: '',
+    message: ''
+  })
+  const [formStatus, setFormStatus] = useState<'idle'|'submitting'|'success'|'error'>('idle')
+  const [formError, setFormError] = useState('')
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768)
     checkMobile()
     window.addEventListener('resize', checkMobile)
     return () => window.removeEventListener('resize', checkMobile)
   }, [])
+
+  // Contact form handler
+  const handleFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setForm({ ...form, [e.target.name]: e.target.value })
+  }
+  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setFormStatus('submitting')
+    setFormError('')
+    try {
+      const res = await fetch('https://formspree.io/f/xeogwnyg', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(e.currentTarget)
+      })
+      const data = await res.json()
+      if (data.ok) {
+        setFormStatus('success')
+        setForm({ firstName: '', lastName: '', email: '', phone: '', interest: '', message: '' })
+      } else {
+        setFormStatus('error')
+        setFormError(data?.errors?.[0]?.message || 'Nastala chyba při odesílání. Zkuste to prosím znovu.')
+      }
+    } catch (err) {
+      setFormStatus('error')
+      setFormError('Nastala chyba při odesílání. Zkuste to prosím znovu.')
+    }
+  }
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -945,15 +984,15 @@ export default function Home() {
                   <div className="pt-4">
                     <h3 className="text-xl font-bold text-white mb-4">Jak nás najít</h3>
                     <p className="text-gray-300 mb-2">
-                      Nacházíme se v centru Teplic, jen 5 minut chůze od hlavního náměstí.
+                      Nacházíme se v Proseticích v areálu Arena 68.
                     </p>
                     <ul className="list-disc pl-5 text-gray-300 space-y-1">
-                      <li>Z autobusového nádraží jděte směrem k náměstí</li>
-                      <li>Pokračujte na sever asi 200 m</li>
-                      <li>Odbočte doprava na Bojovnickou ulici</li>
-                      <li>Naše tělocvična je na levé straně, hledejte nápis Czech Eagles MMA</li>
+                      <li>Po vjezdu do areálu Arena 68, rovně.</li>
+                      <li>Doprava</li>
+                      <li>Doleva</li>
+                      <li>Naše tělocvična je na pravé straně, hledejte nápis Czech Eagles MMA</li>
                     </ul>
-                    <p className="text-gray-300 mt-2">Parkování je k dispozici v podzemní garáži pod naší budovou.</p>
+                    <p className="text-gray-300 mt-2">Parkování je k dispozici před naší budovou.</p>
                   </div>
                   <div className="pt-4">
                     <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white">
@@ -1044,22 +1083,36 @@ export default function Home() {
 
             <div className="space-y-4">
               <h3 className="text-lg font-bold text-white">Kontaktujte nás</h3>
-              <form className="space-y-3">
+              <form className="space-y-3" onSubmit={handleFormSubmit}>
                 <div className="grid grid-cols-2 gap-2">
-                  <Input placeholder="Jméno" className="bg-neutral-800 border-neutral-700 text-white text-sm h-9" />
-                  <Input placeholder="Příjmení" className="bg-neutral-800 border-neutral-700 text-white text-sm h-9" />
+                  <Input name="firstName" value={form.firstName} onChange={handleFormChange} required placeholder="Jméno" className="bg-neutral-800 border-neutral-700 text-white text-sm h-9" />
+                  <Input name="lastName" value={form.lastName} onChange={handleFormChange} required placeholder="Příjmení" className="bg-neutral-800 border-neutral-700 text-white text-sm h-9" />
                 </div>
                 <Input
+                  name="email"
                   type="email"
+                  value={form.email}
+                  onChange={handleFormChange}
+                  required
                   placeholder="Email"
                   className="bg-neutral-800 border-neutral-700 text-white text-sm h-9"
                 />
                 <Input
+                  name="phone"
                   type="tel"
+                  value={form.phone}
+                  onChange={handleFormChange}
+                  required
                   placeholder="Telefon"
                   className="bg-neutral-800 border-neutral-700 text-white text-sm h-9"
                 />
-                <select className="w-full px-3 py-1 bg-neutral-800 border border-neutral-700 rounded-md text-gray-400 text-sm h-9">
+                <select
+                  name="interest"
+                  value={form.interest}
+                  onChange={handleFormChange}
+                  required
+                  className="w-full px-3 py-1 bg-neutral-800 border border-neutral-700 rounded-md text-gray-400 text-sm h-9"
+                >
                   <option value="">Vyberte zájem</option>
                   <option value="mma">MMA trénink</option>
                   <option value="bjj">Brazilské Jiu-Jitsu</option>
@@ -1068,12 +1121,26 @@ export default function Home() {
                   <option value="wrestling">Zápas</option>
                 </select>
                 <Textarea
+                  name="message"
+                  value={form.message}
+                  onChange={handleFormChange}
+                  required
                   placeholder="Zpráva"
                   className="min-h-[80px] bg-neutral-800 border-neutral-700 text-white text-sm"
                 />
-                <Button type="submit" className="w-full bg-green-600 hover:bg-green-700 text-white text-sm h-9">
-                  Odeslat
+                <Button
+                  type="submit"
+                  className="w-full bg-green-600 hover:bg-green-700 text-white text-sm h-9"
+                  disabled={formStatus === 'submitting'}
+                >
+                  {formStatus === 'submitting' ? 'Odesílání...' : 'Odeslat'}
                 </Button>
+                {formStatus === 'success' && (
+                  <div className="text-green-500 text-sm pt-2">Děkujeme za zprávu! Ozveme se vám co nejdříve.</div>
+                )}
+                {formStatus === 'error' && (
+                  <div className="text-red-500 text-sm pt-2">{formError}</div>
+                )}
               </form>
             </div>
           </div>
