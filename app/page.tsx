@@ -809,7 +809,7 @@ export default function Home() {
                   <div className="text-lime-400 font-extrabold text-2xl mb-1">Jakub Novotný</div>
                   <div className="text-gray-300 text-base mb-3">Hlavní MMA trenér</div>
                   <div className="mt-auto text-lime-400 font-bold text-base flex items-center gap-2">
-                    <Image src="/dagestan-flag.svg" alt="Dagestan flag" width={24} height={16} className="inline-block mr-2" />
+                    <Image src="/dagestan-flag.png" alt="Dagestan flag" width={24} height={16} className="inline-block mr-2" />
                     UFC veterán
                   </div>
                 </div>
@@ -823,7 +823,7 @@ export default function Home() {
                   <div className="text-lime-400 font-extrabold text-2xl mb-1">Tereza Svobodová</div>
                   <div className="text-gray-300 text-base mb-3">Grappling specialistka</div>
                   <div className="mt-auto text-lime-400 font-bold text-base flex items-center gap-2">
-                    <Image src="/dagestan-flag.svg" alt="Dagestan flag" width={24} height={16} className="inline-block mr-2" />
+                    <Image src="/dagestan-flag.png" alt="Dagestan flag" width={24} height={16} className="inline-block mr-2" />
                     Národní šampionka
                   </div>
                 </div>
