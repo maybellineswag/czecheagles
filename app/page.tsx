@@ -808,8 +808,10 @@ export default function Home() {
                 <div className="flex flex-col flex-1 p-6">
                   <div className="text-lime-400 font-extrabold text-2xl mb-1">Jakub Novotný</div>
                   <div className="text-gray-300 text-base mb-3">Hlavní MMA trenér</div>
-                  <div className="text-white text-base mb-4">Bývalý UFC zápasník s 15 lety profesionálních zkušeností. Černý pás v brazilském jiu-jitsu a certifikovaný specialista na sílu a kondici.</div>
-                  <div className="mt-auto text-lime-400 font-bold text-base">UFC veterán</div>
+                  <div className="mt-auto text-lime-400 font-bold text-base flex items-center gap-2">
+                    <Image src="/dagestan-flag.svg" alt="Dagestan flag" width={24} height={16} className="inline-block mr-2" />
+                    UFC veterán
+                  </div>
                 </div>
               </div>
               {/* Tereza Svobodová */}
@@ -820,8 +822,10 @@ export default function Home() {
                 <div className="flex flex-col flex-1 p-6">
                   <div className="text-lime-400 font-extrabold text-2xl mb-1">Tereza Svobodová</div>
                   <div className="text-gray-300 text-base mb-3">Grappling specialistka</div>
-                  <div className="text-white text-base mb-4">Účastnice ADCC mistrovství světa s několika národními tituly. Hnědý pás v brazilském jiu-jitsu s 10 lety zkušeností s výukou.</div>
-                  <div className="mt-auto text-lime-400 font-bold text-base">Národní šampionka</div>
+                  <div className="mt-auto text-lime-400 font-bold text-base flex items-center gap-2">
+                    <Image src="/dagestan-flag.svg" alt="Dagestan flag" width={24} height={16} className="inline-block mr-2" />
+                    Národní šampionka
+                  </div>
                 </div>
               </div>
               {/* David Černý */}
@@ -832,8 +836,10 @@ export default function Home() {
                 <div className="flex flex-col flex-1 p-6">
                   <div className="text-lime-400 font-extrabold text-2xl mb-1">David Černý</div>
                   <div className="text-gray-300 text-base mb-3">Trenér úderů</div>
-                  <div className="text-white text-base mb-4">Bývalý profesionální Muay Thai bojovník s více než 20 zápasy. Certifikovaný v oblasti sportovní výživy a technik prevence zranění.</div>
-                  <div className="mt-auto text-lime-400 font-bold text-base">Muay Thai šampion</div>
+                  <div className="mt-auto text-lime-400 font-bold text-base flex items-center gap-2">
+                    <Image src="/czech-flag.svg" alt="Czech flag" width={24} height={16} className="inline-block mr-2" />
+                    Muay Thai šampion
+                  </div>
                 </div>
               </div>
             </div>
