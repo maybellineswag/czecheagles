@@ -87,14 +87,14 @@ export default function RootLayout({ children }: RootLayoutProps) {
           image: 'https://www.czecheaglesmma.cz/og-image.jpg',
           address: {
             '@type': 'PostalAddress',
-            streetAddress: 'Bojovnická 123',
+            streetAddress: 'Pražská 1268/121',
             addressLocality: 'Teplice',
             addressCountry: 'CZ',
             postalCode: '41501',
           },
-          telephone: '+420 123-456-789',
+          telephone: '+420 603 586 073',
           openingHours: [
-            'Mo-Sa 05:30-21:30'
+            'Mo-Fr 9:00-20:00'
           ],
           url: 'https://www.czecheaglesmma.cz/'
         }) }} />

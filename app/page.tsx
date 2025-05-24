@@ -972,15 +972,15 @@ export default function Home() {
                   <div className="space-y-2">
                     <div className="flex items-center">
                       <MapPin className="mr-2 h-5 w-5 text-green-500" />
-                      <span className="text-white">Bojovnická 123, Teplice, Česká republika</span>
+                      <span className="text-white">Pražská 1268/121, Teplice 415 01</span>
                     </div>
                     <div className="flex items-center">
                       <Phone className="mr-2 h-5 w-5 text-green-500" />
-                      <span className="text-white">(+420) 123-456-789</span>
+                      <span className="text-white text-sm">+420 603 586 073</span>
                     </div>
                     <div className="flex items-center">
                       <Users className="mr-2 h-5 w-5 text-green-500" />
-                      <span className="text-white">Po-So: 5:30 - 21:30</span>
+                      <span className="text-white">Po-So: 9:00 - 20:00</span>
                     </div>
                   </div>
                   <div className="pt-4">
@@ -1036,15 +1036,15 @@ export default function Home() {
               <div className="space-y-2">
                 <div className="flex items-center">
                   <MapPin className="mr-2 h-4 w-4 text-green-500" />
-                  <span className="text-white text-sm">Bojovnická 123, Teplice, Česká republika</span>
+                  <span className="text-white text-sm">Pražská 1268/121, Teplice 415 01</span>
                 </div>
                 <div className="flex items-center">
                   <Phone className="mr-2 h-4 w-4 text-green-500" />
-                  <span className="text-white text-sm">(+420) 123-456-789</span>
+                  <span className="text-white text-sm">+420 603 586 073</span>
                 </div>
                 <div className="flex items-center">
                   <Users className="mr-2 h-4 w-4 text-green-500" />
-                  <span className="text-white text-sm">Po-So: 5:30 - 21:30</span>
+                  <span className="text-white text-sm">Po-So: 9:00 - 20:00</span>
                 </div>
               </div>
             </div>
