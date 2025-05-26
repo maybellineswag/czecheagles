@@ -224,12 +224,21 @@ export default function Home() {
             transition={{ duration: 0.8 }}
           >
             <div className="flex flex-col items-center justify-center space-y-4">
+              <Image
+                src="/arena68-logo.svg"
+                alt="Arena 68 Logo"
+                width={120}
+                height={30}
+                className="mx-auto mb-4 filter invert brightness-0"
+                style={{ filter: 'invert(1) brightness(100)' }}
+                priority
+              />
               <div className="space-y-2 max-w-xs sm:max-w-2xl md:max-w-3xl mx-auto px-2 sm:px-0">
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tighter text-white leading-tight sm:leading-tight md:leading-tight">
                   TRÉNUJ. BOJUJ. VYHRÁVEJ.
                 </h1>
                 <p className="text-base sm:text-lg md:text-2xl text-gray-300 max-w-xs sm:max-w-[600px] md:max-w-[800px] mx-auto mt-4 sm:mt-2">
-                  Czech Eagles MMA Teplice nabízí špičkový trénink pro všechny úrovně dovedností. Připojte se k naší komunitě a
+                  Czech Eagles MMA Arena 68 Teplice nabízí špičkový trénink pro všechny úrovně dovedností. Připojte se k naší komunitě a
                   transformujte své tělo i mysl.
                 </p>
               </div>
@@ -979,11 +988,21 @@ export default function Home() {
                       <span className="text-white text-sm">+420 603 586 073</span>
                     </div>
                     <div className="flex items-center">
-                      <Users className="mr-2 h-5 w-5 text-green-500" />
-                      <span className="text-white">Po-So: 9:00 - 20:00</span>
+                      <Users className="mr-2 h-4 w-4 text-green-500" />
+                      <span className="text-white text-sm">Po-So: 9:00 - 20:00</span>
                     </div>
                   </div>
-                  <div className="pt-4">
+                  <div className="my-4">
+                    <Image
+                      src="/arena68-logo.svg"
+                      alt="Arena 68 Logo"
+                      width={120}
+                      height={30}
+                      style={{ filter: 'invert(1) brightness(100)' }}
+                      priority
+                    />
+                  </div>
+                  <div>
                     <h3 className="text-xl font-bold text-white mb-4">Jak nás najít</h3>
                     <p className="text-gray-300 mb-2">
                       Nacházíme se v Proseticích v areálu Arena 68.
@@ -1046,6 +1065,16 @@ export default function Home() {
                   <Users className="mr-2 h-4 w-4 text-green-500" />
                   <span className="text-white text-sm">Po-So: 9:00 - 20:00</span>
                 </div>
+              </div>
+              <div className="my-4">
+                <Image
+                  src="/arena68-logo.svg"
+                  alt="Arena 68 Logo"
+                  width={120}
+                  height={30}
+                  style={{ filter: 'invert(1) brightness(100)' }}
+                  priority
+                />
               </div>
             </div>
 
