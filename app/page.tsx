@@ -335,36 +335,6 @@ export default function Home() {
                       <Calendar className="mr-2 h-5 w-5" /> Pondělí
                     </h3>
                     <div className="grid gap-4">
-                      <div className="flex justify-between items-center border-b border-neutral-700 pb-2">
-                        <div>
-                          <h4 className="font-medium">Začátečnické MMA</h4>
-                          <p className="text-sm text-gray-400">Všechny úrovně vítány</p>
-                        </div>
-                        <div className="flex items-center">
-                          <Clock className="mr-2 h-4 w-4 text-green-500" />
-                          <span>6:00 - 7:30</span>
-                        </div>
-                      </div>
-                      <div className="flex justify-between items-center border-b border-neutral-700 pb-2">
-                        <div>
-                          <h4 className="font-medium">Pokročilý grappling</h4>
-                          <p className="text-sm text-gray-400">2+ roky zkušeností</p>
-                        </div>
-                        <div className="flex items-center">
-                          <Clock className="mr-2 h-4 w-4 text-green-500" />
-                          <span>12:00 - 13:30</span>
-                        </div>
-                      </div>
-                      <div className="flex justify-between items-center border-b border-neutral-700 pb-2">
-                        <div>
-                          <h4 className="font-medium">Základy úderů</h4>
-                          <p className="text-sm text-gray-400">Všechny úrovně vítány</p>
-                        </div>
-                        <div className="flex items-center">
-                          <Clock className="mr-2 h-4 w-4 text-green-500" />
-                          <span>17:30 - 19:00</span>
-                        </div>
-                      </div>
                       <div className="flex justify-between items-center">
                         <div>
                           <h4 className="font-medium">Otevřená žíněnka</h4>
@@ -372,7 +342,7 @@ export default function Home() {
                         </div>
                         <div className="flex items-center">
                           <Clock className="mr-2 h-4 w-4 text-green-500" />
-                          <span>19:30 - 21:00</span>
+                          <span>9:00 - 20:00</span>
                         </div>
                       </div>
                     </div>
@@ -389,32 +359,22 @@ export default function Home() {
                     <div className="grid gap-4">
                       <div className="flex justify-between items-center border-b border-neutral-700 pb-2">
                         <div>
-                          <h4 className="font-medium">Síla a kondice</h4>
-                          <p className="text-sm text-gray-400">Všechny úrovně vítány</p>
+                          <h4 className="font-medium">Grappling děti</h4>
+                          <p className="text-sm text-gray-400">Od 6 do 14 let</p>
                         </div>
                         <div className="flex items-center">
                           <Clock className="mr-2 h-4 w-4 text-green-500" />
-                          <span>6:00 - 7:00</span>
-                        </div>
-                      </div>
-                      <div className="flex justify-between items-center border-b border-neutral-700 pb-2">
-                        <div>
-                          <h4 className="font-medium">Brazilské jiu-jitsu</h4>
-                          <p className="text-sm text-gray-400">Všechny úrovně vítány</p>
-                        </div>
-                        <div className="flex items-center">
-                          <Clock className="mr-2 h-4 w-4 text-green-500" />
-                          <span>12:00 - 13:30</span>
+                          <span>16:00 - 17:00</span>
                         </div>
                       </div>
                       <div className="flex justify-between items-center">
                         <div>
-                          <h4 className="font-medium">MMA sparring</h4>
-                          <p className="text-sm text-gray-400">Středně pokročilí a pokročilí</p>
+                          <h4 className="font-medium">MMA kadeti, junioři, dospělí</h4>
+                          <p className="text-sm text-gray-400">Od 15 let</p>
                         </div>
                         <div className="flex items-center">
                           <Clock className="mr-2 h-4 w-4 text-green-500" />
-                          <span>18:00 - 20:00</span>
+                          <span>17:00 - 18:30</span>
                         </div>
                       </div>
                     </div>
@@ -429,34 +389,14 @@ export default function Home() {
                       <Calendar className="mr-2 h-5 w-5" /> Středa
                     </h3>
                     <div className="grid gap-4">
-                      <div className="flex justify-between items-center border-b border-neutral-700 pb-2">
-                        <div>
-                          <h4 className="font-medium">Začátečnické MMA</h4>
-                          <p className="text-sm text-gray-400">Všechny úrovně vítány</p>
-                        </div>
-                        <div className="flex items-center">
-                          <Clock className="mr-2 h-4 w-4 text-green-500" />
-                          <span>6:00 - 7:30</span>
-                        </div>
-                      </div>
-                      <div className="flex justify-between items-center border-b border-neutral-700 pb-2">
-                        <div>
-                          <h4 className="font-medium">Základy zápasu</h4>
-                          <p className="text-sm text-gray-400">Všechny úrovně vítány</p>
-                        </div>
-                        <div className="flex items-center">
-                          <Clock className="mr-2 h-4 w-4 text-green-500" />
-                          <span>12:00 - 13:30</span>
-                        </div>
-                      </div>
                       <div className="flex justify-between items-center">
                         <div>
-                          <h4 className="font-medium">Pokročilé MMA</h4>
-                          <p className="text-sm text-gray-400">2+ roky zkušeností</p>
+                          <h4 className="font-medium">Otevřená žíněnka</h4>
+                          <p className="text-sm text-gray-400">Všichni členové</p>
                         </div>
                         <div className="flex items-center">
                           <Clock className="mr-2 h-4 w-4 text-green-500" />
-                          <span>18:00 - 20:00</span>
+                          <span>9:00 - 20:00</span>
                         </div>
                       </div>
                     </div>
@@ -473,32 +413,22 @@ export default function Home() {
                     <div className="grid gap-4">
                       <div className="flex justify-between items-center border-b border-neutral-700 pb-2">
                         <div>
-                          <h4 className="font-medium">Síla a kondice</h4>
-                          <p className="text-sm text-gray-400">Všechny úrovně vítány</p>
+                          <h4 className="font-medium">Grappling děti</h4>
+                          <p className="text-sm text-gray-400">Od 6 do 14 let</p>
                         </div>
                         <div className="flex items-center">
                           <Clock className="mr-2 h-4 w-4 text-green-500" />
-                          <span>6:00 - 7:00</span>
-                        </div>
-                      </div>
-                      <div className="flex justify-between items-center border-b border-neutral-700 pb-2">
-                        <div>
-                          <h4 className="font-medium">Muay Thai</h4>
-                          <p className="text-sm text-gray-400">Všechny úrovně vítány</p>
-                        </div>
-                        <div className="flex items-center">
-                          <Clock className="mr-2 h-4 w-4 text-green-500" />
-                          <span>12:00 - 13:30</span>
+                          <span>16:00 - 17:00</span>
                         </div>
                       </div>
                       <div className="flex justify-between items-center">
                         <div>
-                          <h4 className="font-medium">No-Gi Grappling</h4>
-                          <p className="text-sm text-gray-400">Všechny úrovně vítány</p>
+                          <h4 className="font-medium">MMA kadeti, junioři, dospělí</h4>
+                          <p className="text-sm text-gray-400">Od 15 let</p>
                         </div>
                         <div className="flex items-center">
                           <Clock className="mr-2 h-4 w-4 text-green-500" />
-                          <span>18:00 - 19:30</span>
+                          <span>17:00 - 18:30</span>
                         </div>
                       </div>
                     </div>
@@ -513,34 +443,14 @@ export default function Home() {
                       <Calendar className="mr-2 h-5 w-5" /> Pátek
                     </h3>
                     <div className="grid gap-4">
-                      <div className="flex justify-between items-center border-b border-neutral-700 pb-2">
-                        <div>
-                          <h4 className="font-medium">Začátečnické MMA</h4>
-                          <p className="text-sm text-gray-400">Všechny úrovně vítány</p>
-                        </div>
-                        <div className="flex items-center">
-                          <Clock className="mr-2 h-4 w-4 text-green-500" />
-                          <span>6:00 - 7:30</span>
-                        </div>
-                      </div>
-                      <div className="flex justify-between items-center border-b border-neutral-700 pb-2">
-                        <div>
-                          <h4 className="font-medium">Box</h4>
-                          <p className="text-sm text-gray-400">Všechny úrovně vítány</p>
-                        </div>
-                        <div className="flex items-center">
-                          <Clock className="mr-2 h-4 w-4 text-green-500" />
-                          <span>12:00 - 13:30</span>
-                        </div>
-                      </div>
                       <div className="flex justify-between items-center">
                         <div>
-                          <h4 className="font-medium">Soutěžní trénink</h4>
-                          <p className="text-sm text-gray-400">Pouze pokročilí</p>
+                          <h4 className="font-medium">Otevřená žíněnka</h4>
+                          <p className="text-sm text-gray-400">Všichni členové</p>
                         </div>
                         <div className="flex items-center">
                           <Clock className="mr-2 h-4 w-4 text-green-500" />
-                          <span>18:00 - 20:00</span>
+                          <span>9:00 - 20:00</span>
                         </div>
                       </div>
                     </div>
@@ -557,22 +467,22 @@ export default function Home() {
                     <div className="grid gap-4">
                       <div className="flex justify-between items-center border-b border-neutral-700 pb-2">
                         <div>
-                          <h4 className="font-medium">MMA pro všechny úrovně</h4>
-                          <p className="text-sm text-gray-400">Všechny úrovně vítány</p>
+                          <h4 className="font-medium">Grappling děti</h4>
+                          <p className="text-sm text-gray-400">Od 6 do 14 let</p>
                         </div>
                         <div className="flex items-center">
                           <Clock className="mr-2 h-4 w-4 text-green-500" />
-                          <span>9:00 - 11:00</span>
+                          <span>16:00 - 17:00</span>
                         </div>
                       </div>
                       <div className="flex justify-between items-center">
                         <div>
-                          <h4 className="font-medium">Otevřená žíněnka</h4>
-                          <p className="text-sm text-gray-400">Všichni členové</p>
+                          <h4 className="font-medium">MMA kadeti, junioři, dospělí</h4>
+                          <p className="text-sm text-gray-400">Od 15 let</p>
                         </div>
                         <div className="flex items-center">
                           <Clock className="mr-2 h-4 w-4 text-green-500" />
-                          <span>12:00 - 14:00</span>
+                          <span>17:00 - 18:30</span>
                         </div>
                       </div>
                     </div>
@@ -589,12 +499,12 @@ export default function Home() {
                     <div className="grid gap-4">
                       <div className="flex justify-between items-center">
                         <div>
-                          <h4 className="font-medium">Zavřeno</h4>
-                          <p className="text-sm text-gray-400">Den odpočinku a regenerace</p>
+                          <h4 className="font-medium">Otevřená žíněnka</h4>
+                          <p className="text-sm text-gray-400">Všichni členové</p>
                         </div>
                         <div className="flex items-center">
                           <Clock className="mr-2 h-4 w-4 text-green-500" />
-                          <span>-</span>
+                          <span>9:00 - 20:00</span>
                         </div>
                       </div>
                     </div>
@@ -812,7 +722,7 @@ export default function Home() {
               {/* Martin Polašek */}
               <div className="flex flex-col rounded-xl border-2 border-lime-400 bg-black overflow-hidden shadow-lg">
                 <div className="bg-black w-full aspect-[4/3] flex items-center justify-center text-gray-400 text-4xl font-bold rounded-t-xl">
-                  <Image src="/placeholder.svg?height=240&width=360" alt="Martin Polašek" width={360} height={240} className="object-cover w-full h-full rounded-t-xl" style={{ backgroundColor: 'black' }} />
+                  <Image src="/martin.png" alt="Martin Polašek" width={360} height={240} className="object-cover w-full h-full rounded-t-xl" style={{ backgroundColor: 'black' }} />
                 </div>
                 <div className="flex flex-col flex-1 p-6">
                   <div className="text-lime-400 font-extrabold text-2xl mb-1">Martin Polašek</div>
@@ -826,7 +736,7 @@ export default function Home() {
               {/* Yusup Yusupov */}
               <div className="flex flex-col rounded-xl border-2 border-lime-400 bg-black overflow-hidden shadow-lg">
                 <div className="bg-black w-full aspect-[4/3] flex items-center justify-center text-gray-400 text-4xl font-bold rounded-t-xl">
-                  <Image src="/placeholder.svg?height=240&width=360" alt="Yusup Yusupov" width={360} height={240} className="object-cover w-full h-full rounded-t-xl" style={{ backgroundColor: 'black' }} />
+                  <Image src="/yusup.png" alt="Yusup Yusupov" width={360} height={240} className="object-cover w-full h-full rounded-t-xl" style={{ backgroundColor: 'black' }} />
                 </div>
                 <div className="flex flex-col flex-1 p-6">
                   <div className="text-lime-400 font-extrabold text-2xl mb-1">Yusup Yusupov</div>
@@ -840,7 +750,7 @@ export default function Home() {
               {/* Adam Bakrajev */}
               <div className="flex flex-col rounded-xl border-2 border-lime-400 bg-black overflow-hidden shadow-lg">
                 <div className="bg-black w-full aspect-[4/3] flex items-center justify-center text-gray-400 text-4xl font-bold rounded-t-xl">
-                  <Image src="/placeholder.svg?height=240&width=360" alt="Adam Bakrajev" width={360} height={240} className="object-cover w-full h-full rounded-t-xl" style={{ backgroundColor: 'black' }} />
+                  <Image src="/adam.png" alt="Adam Bakrajev" width={360} height={240} className="object-cover w-full h-full rounded-t-xl" style={{ backgroundColor: 'black' }} />
                 </div>
                 <div className="flex flex-col flex-1 p-6">
                   <div className="text-lime-400 font-extrabold text-2xl mb-1">Adam Bakrajev</div>
@@ -980,16 +890,31 @@ export default function Home() {
                   </p>
                   <div className="space-y-2">
                     <div className="flex items-center">
-                      <MapPin className="mr-2 h-5 w-5 text-green-500" />
-                      <span className="text-white">Pražská 1268/121, Teplice 415 01</span>
+                      <MapPin className="mr-2 h-4 w-4 text-green-500" />
+                      <span className="text-white text-sm">Pražská 1268/121, Teplice 415 01</span>
                     </div>
                     <div className="flex items-center">
-                      <Phone className="mr-2 h-5 w-5 text-green-500" />
+                      <Phone className="mr-2 h-4 w-4 text-green-500" />
                       <span className="text-white text-sm">+420 603 586 073</span>
                     </div>
                     <div className="flex items-center">
                       <Users className="mr-2 h-4 w-4 text-green-500" />
                       <span className="text-white text-sm">Po-So: 9:00 - 20:00</span>
+                    </div>
+                    {/* Social links under opening hours */}
+                    <div className="flex flex-col gap-2 mt-2 mb-4">
+                      <a href="https://t.me/czecheagles_mma" target="_blank" rel="noopener noreferrer" className="flex items-center group text-sm">
+                        <svg className="h-4 w-4 text-green-500 mr-2 group-hover:text-green-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M21.944 4.667a1.5 1.5 0 0 0-1.7-1.1C17.1 4.2 6.1 8.1 2.3 9.5a1.5 1.5 0 0 0-.1 2.8l3.2 1.1 2.2 6.7a1.5 1.5 0 0 0 2.3.8l3.1-2.3 3.2 2.3a1.5 1.5 0 0 0 2.3-.8l3.2-13.1a1.5 1.5 0 0 0-.1-1.1zM9.7 16.2l-2-6.1 8.7-3.5-6.7 9.6zm1.2 1.1l6.7-9.6 2.1 8.7-8.8.9zm-7.2-7.7c3.7-1.3 14.7-5.3 17.9-6.1a.5.5 0 0 1 .6.4l-3.2 13.1a.5.5 0 0 1-.8.3l-3.2-2.3-3.1 2.3a.5.5 0 0 1-.8-.3l-2.2-6.7-3.2-1.1a.5.5 0 0 1-.2-.7z"/></svg>
+                        <span className="text-white">czecheagles_mma</span>
+                      </a>
+                      <a href="https://facebook.com/velozoteam" target="_blank" rel="noopener noreferrer" className="flex items-center group text-sm">
+                        <svg className="h-4 w-4 text-green-500 mr-2 group-hover:text-green-400 transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M22.675 0h-21.35C.595 0 0 .592 0 1.326v21.348C0 23.408.595 24 1.325 24h11.495v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.797.143v3.24l-1.918.001c-1.504 0-1.797.715-1.797 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116C23.406 24 24 23.408 24 22.674V1.326C24 .592 23.406 0 22.675 0"/></svg>
+                        <span className="text-white">velozoteam</span>
+                      </a>
+                      <a href="https://instagram.com/czecheagles_mma" target="_blank" rel="noopener noreferrer" className="flex items-center group text-sm">
+                        <svg className="h-4 w-4 text-green-500 mr-2 group-hover:text-green-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><rect width="18" height="18" x="3" y="3" rx="5" stroke="currentColor" strokeWidth="2"/><circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="2"/><circle cx="17" cy="7" r="1.5" fill="currentColor"/></svg>
+                        <span className="text-white">czecheagles_mma</span>
+                      </a>
                     </div>
                   </div>
                   <div className="my-4">
@@ -1065,16 +990,21 @@ export default function Home() {
                   <Users className="mr-2 h-4 w-4 text-green-500" />
                   <span className="text-white text-sm">Po-So: 9:00 - 20:00</span>
                 </div>
-              </div>
-              <div className="my-4">
-                <Image
-                  src="/arena68-logo.svg"
-                  alt="Arena 68 Logo"
-                  width={120}
-                  height={30}
-                  style={{ filter: 'invert(1) brightness(100)' }}
-                  priority
-                />
+                {/* Social links under opening hours */}
+                <div className="flex flex-col gap-2 mt-2 mb-4">
+                  <a href="https://t.me/czecheagles_mma" target="_blank" rel="noopener noreferrer" className="flex items-center group text-sm">
+                    <svg className="h-4 w-4 text-green-500 mr-2 group-hover:text-green-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M21.944 4.667a1.5 1.5 0 0 0-1.7-1.1C17.1 4.2 6.1 8.1 2.3 9.5a1.5 1.5 0 0 0-.1 2.8l3.2 1.1 2.2 6.7a1.5 1.5 0 0 0 2.3.8l3.1-2.3 3.2 2.3a1.5 1.5 0 0 0 2.3-.8l3.2-13.1a1.5 1.5 0 0 0-.1-1.1zM9.7 16.2l-2-6.1 8.7-3.5-6.7 9.6zm1.2 1.1l6.7-9.6 2.1 8.7-8.8.9zm-7.2-7.7c3.7-1.3 14.7-5.3 17.9-6.1a.5.5 0 0 1 .6.4l-3.2 13.1a.5.5 0 0 1-.8.3l-3.2-2.3-3.1 2.3a.5.5 0 0 1-.8-.3l-2.2-6.7-3.2-1.1a.5.5 0 0 1-.2-.7z"/></svg>
+                    <span className="text-white">czecheagles_mma</span>
+                  </a>
+                  <a href="https://facebook.com/velozoteam" target="_blank" rel="noopener noreferrer" className="flex items-center group text-sm">
+                    <svg className="h-4 w-4 text-green-500 mr-2 group-hover:text-green-400 transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M22.675 0h-21.35C.595 0 0 .592 0 1.326v21.348C0 23.408.595 24 1.325 24h11.495v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.797.143v3.24l-1.918.001c-1.504 0-1.797.715-1.797 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116C23.406 24 24 23.408 24 22.674V1.326C24 .592 23.406 0 22.675 0"/></svg>
+                    <span className="text-white">velozoteam</span>
+                  </a>
+                  <a href="https://instagram.com/czecheagles_mma" target="_blank" rel="noopener noreferrer" className="flex items-center group text-sm">
+                    <svg className="h-4 w-4 text-green-500 mr-2 group-hover:text-green-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><rect width="18" height="18" x="3" y="3" rx="5" stroke="currentColor" strokeWidth="2"/><circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="2"/><circle cx="17" cy="7" r="1.5" fill="currentColor"/></svg>
+                    <span className="text-white">czecheagles_mma</span>
+                  </a>
+                </div>
               </div>
             </div>
 
