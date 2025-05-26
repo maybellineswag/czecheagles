@@ -1,10 +1,3 @@
 <svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
-  <rect width="100%" height="100%" fill="#1a1a1a"/>
-  <rect x="50" y="50" width="700" height="500" fill="#333" stroke="#555" stroke-width="2"/>
-  <text x="50%" y="50%" font-family="Arial" font-size="32" fill="#fff" text-anchor="middle" dominant-baseline="middle">
-    MMA Gym Placeholder
-  </text>
-  <text x="50%" y="58%" font-family="Arial" font-size="20" fill="#95D600" text-anchor="middle" dominant-baseline="middle">
-    Czech Eagles MMA
-  </text>
+  <rect width="100%" height="100%" fill="#000"/>
 </svg>
