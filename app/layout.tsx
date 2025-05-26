@@ -12,7 +12,7 @@ const inter = Inter({
 
 export const metadata = {
   title: "Czech Eagles MMA Teplice | Profesionální MMA & Grappling Tělocvična",
-  description: "Czech Eagles MMA v Teplicích v Arena 68 nabízí špičkové tréninky MMA, grapplingu, boxu a sebeobrany pro všechny úrovně. Přidejte se k nám a začněte svou cestu bojovníka!",
+  description: "Czech Eagles MMA v Teplicích nabízí špičkové tréninky MMA, grapplingu, boxu a sebeobrany pro všechny úrovně. Přidejte se k nám a začněte svou cestu bojovníka!",
   keywords: [
     "MMA Teplice",
     "MMA tělocvična Teplice",

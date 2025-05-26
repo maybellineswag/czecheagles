@@ -809,45 +809,45 @@ export default function Home() {
               </div>
             </FadeInSection>
             <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
-              {/* Jakub Novotný */}
+              {/* Martin Polašek */}
               <div className="flex flex-col rounded-xl border-2 border-lime-400 bg-black overflow-hidden shadow-lg">
-                <div className="bg-gray-200 w-full aspect-[4/3] flex items-center justify-center text-gray-400 text-4xl font-bold rounded-t-xl">
-                  <Image src="/placeholder.svg?height=240&width=360" alt="Jakub Novotný" width={360} height={240} className="object-cover w-full h-full rounded-t-xl" />
+                <div className="bg-black w-full aspect-[4/3] flex items-center justify-center text-gray-400 text-4xl font-bold rounded-t-xl">
+                  <Image src="/placeholder.svg?height=240&width=360" alt="Martin Polašek" width={360} height={240} className="object-cover w-full h-full rounded-t-xl" style={{ backgroundColor: 'black' }} />
                 </div>
                 <div className="flex flex-col flex-1 p-6">
-                  <div className="text-lime-400 font-extrabold text-2xl mb-1">Jakub Novotný</div>
+                  <div className="text-lime-400 font-extrabold text-2xl mb-1">Martin Polašek</div>
+                  <div className="text-gray-300 text-base mb-3">Předseda spolků</div>
+                  <div className="mt-auto text-lime-400 font-bold text-base flex items-center gap-2">
+                    <Image src="/czech-flag.svg" alt="Czech flag" width={24} height={16} className="inline-block mr-2" />
+                    Atletický veterán
+                  </div>
+                </div>
+              </div>
+              {/* Yusup Yusupov */}
+              <div className="flex flex-col rounded-xl border-2 border-lime-400 bg-black overflow-hidden shadow-lg">
+                <div className="bg-black w-full aspect-[4/3] flex items-center justify-center text-gray-400 text-4xl font-bold rounded-t-xl">
+                  <Image src="/placeholder.svg?height=240&width=360" alt="Yusup Yusupov" width={360} height={240} className="object-cover w-full h-full rounded-t-xl" style={{ backgroundColor: 'black' }} />
+                </div>
+                <div className="flex flex-col flex-1 p-6">
+                  <div className="text-lime-400 font-extrabold text-2xl mb-1">Yusup Yusupov</div>
                   <div className="text-gray-300 text-base mb-3">Hlavní MMA trenér</div>
                   <div className="mt-auto text-lime-400 font-bold text-base flex items-center gap-2">
                     <Image src="/dagestan-flag.png" alt="Dagestan flag" width={24} height={16} className="inline-block mr-2" />
-                    UFC veterán
+                    MMA Veterán
                   </div>
                 </div>
               </div>
-              {/* Tereza Svobodová */}
+              {/* Adam Bakrajev */}
               <div className="flex flex-col rounded-xl border-2 border-lime-400 bg-black overflow-hidden shadow-lg">
-                <div className="bg-gray-200 w-full aspect-[4/3] flex items-center justify-center text-gray-400 text-4xl font-bold rounded-t-xl">
-                  <Image src="/placeholder.svg?height=240&width=360" alt="Tereza Svobodová" width={360} height={240} className="object-cover w-full h-full rounded-t-xl" />
+                <div className="bg-black w-full aspect-[4/3] flex items-center justify-center text-gray-400 text-4xl font-bold rounded-t-xl">
+                  <Image src="/placeholder.svg?height=240&width=360" alt="Adam Bakrajev" width={360} height={240} className="object-cover w-full h-full rounded-t-xl" style={{ backgroundColor: 'black' }} />
                 </div>
                 <div className="flex flex-col flex-1 p-6">
-                  <div className="text-lime-400 font-extrabold text-2xl mb-1">Tereza Svobodová</div>
-                  <div className="text-gray-300 text-base mb-3">Grappling specialistka</div>
+                  <div className="text-lime-400 font-extrabold text-2xl mb-1">Adam Bakrajev</div>
+                  <div className="text-gray-300 text-base mb-3">Grappling specialista</div>
                   <div className="mt-auto text-lime-400 font-bold text-base flex items-center gap-2">
-                    <Image src="/dagestan-flag.png" alt="Dagestan flag" width={24} height={16} className="inline-block mr-2" />
-                    Národní šampionka
-                  </div>
-                </div>
-              </div>
-              {/* David Černý */}
-              <div className="flex flex-col rounded-xl border-2 border-lime-400 bg-black overflow-hidden shadow-lg">
-                <div className="bg-gray-200 w-full aspect-[4/3] flex items-center justify-center text-gray-400 text-4xl font-bold rounded-t-xl">
-                  <Image src="/placeholder.svg?height=240&width=360" alt="David Černý" width={360} height={240} className="object-cover w-full h-full rounded-t-xl" />
-                </div>
-                <div className="flex flex-col flex-1 p-6">
-                  <div className="text-lime-400 font-extrabold text-2xl mb-1">David Černý</div>
-                  <div className="text-gray-300 text-base mb-3">Trenér úderů</div>
-                  <div className="mt-auto text-lime-400 font-bold text-base flex items-center gap-2">
-                    <Image src="/czech-flag.svg" alt="Czech flag" width={24} height={16} className="inline-block mr-2" />
-                    Muay Thai šampion
+                    <Image src="/kazakhstan-flag.svg" alt="Kazakhstan flag" width={24} height={16} className="inline-block mr-2" />
+                    Národní šampion
                   </div>
                 </div>
               </div>
