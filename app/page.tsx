@@ -894,6 +894,9 @@ export default function Home() {
                       <span className="text-white text-sm">Pražská 1268/121, Teplice 415 01</span>
                     </div>
                     <div className="flex items-center">
+                      <span className="text-lime-400 text-sm font-semibold">Velozo Team, spolek, IČ 063 65 639</span>
+                    </div>
+                    <div className="flex items-center">
                       <Phone className="mr-2 h-4 w-4 text-green-500" />
                       <span className="text-white text-sm">+420 603 586 073</span>
                     </div>
@@ -967,7 +970,15 @@ export default function Home() {
           </div>
         </section>
       </main>
-      <footer className="w-full border-t border-neutral-800 bg-black py-12">
+      <footer className="w-full border-t border-neutral-800 bg-black py-5">
+        <div className="w-full bg-black py-6 flex flex-wrap justify-center items-center gap-8 mt-0">
+          <Image src="/logos/karsit.svg" alt="Karsit" height={48} width={120} style={{height:'48px',width:'auto',maxWidth:'120px'}} className="object-contain" />
+          <Image src="/logos/farmalogo.svg" alt="Farma" height={48} width={120} style={{height:'48px',width:'auto',maxWidth:'120px'}} className="object-contain" />
+          <Image src="/logos/brochierlogo.svg" alt="Brochier" height={48} width={120} style={{height:'48px',width:'auto',maxWidth:'120px'}} className="object-contain" />
+          <Image src="/logos/penaxlogo.svg" alt="Penax" height={48} width={120} style={{height:'48px',width:'auto',maxWidth:'120px'}} className="object-contain" />
+          <Image src="/logos/lupekovlogo.svg" alt="Lupekov" height={48} width={120} style={{height:'48px',width:'auto',maxWidth:'120px'}} className="object-contain" />
+          <Image src="/logos/armexlogo.svg" alt="Armex" height={48} width={120} style={{height:'48px',width:'auto',maxWidth:'120px'}} className="object-contain" />
+        </div>
         <div className="container px-4 md:px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
             <div className="space-y-4">
@@ -981,6 +992,9 @@ export default function Home() {
                 <div className="flex items-center">
                   <MapPin className="mr-2 h-4 w-4 text-green-500" />
                   <span className="text-white text-sm">Pražská 1268/121, Teplice 415 01</span>
+                </div>
+                <div className="flex items-center">
+                  <span className="text-lime-400 text-sm font-semibold">Velozo Team, spolek, IČ 063 65 639</span>
                 </div>
                 <div className="flex items-center">
                   <Phone className="mr-2 h-4 w-4 text-green-500" />
