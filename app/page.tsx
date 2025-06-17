@@ -750,7 +750,7 @@ export default function Home() {
               {/* Adam Bakrajev */}
               <div className="flex flex-col rounded-xl border-2 border-lime-400 bg-black overflow-hidden shadow-lg">
                 <div className="bg-black w-full aspect-[4/3] flex items-center justify-center text-gray-400 text-4xl font-bold rounded-t-xl">
-                  <Image src="/adam.png" alt="Adam Bakrajev" width={360} height={240} className="object-cover w-full h-full rounded-t-xl" style={{ backgroundColor: 'black' }} />
+                  <Image src="/adam.png" alt="Adam Bakrajev" width={360} height={240} className="object-cover w-full h-full rounded-t-xl" style={{ backgroundColor: 'black', objectPosition: 'top' }} />
                 </div>
                 <div className="flex flex-col flex-1 p-6">
                   <div className="text-lime-400 font-extrabold text-2xl mb-1">Adam Bakrajev</div>
