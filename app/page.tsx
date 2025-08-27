@@ -978,6 +978,7 @@ export default function Home() {
           <Image src="/logos/penaxlogo.svg" alt="Penax" height={48} width={120} style={{height:'48px',width:'auto',maxWidth:'120px'}} className="object-contain" />
           <Image src="/logos/lupekovlogo.svg" alt="Lupekov" height={48} width={120} style={{height:'48px',width:'auto',maxWidth:'120px'}} className="object-contain" />
           <Image src="/logos/armexlogo.svg" alt="Armex" height={48} width={120} style={{height:'48px',width:'auto',maxWidth:'120px'}} className="object-contain" />
+          <Image src="/logos/cistobox.svg" alt="Cistobox" height={48} width={120} style={{height:'48px',width:'auto',maxWidth:'120px'}} className="object-contain" />
         </div>
         <div className="container px-4 md:px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
