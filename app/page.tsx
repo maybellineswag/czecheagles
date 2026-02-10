@@ -61,7 +61,7 @@ export default function Home() {
     interest: '',
     message: ''
   })
-  const [formStatus, setFormStatus] = useState<'idle'|'submitting'|'success'|'error'>('idle')
+  const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
   const [formError, setFormError] = useState('')
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768)
@@ -102,7 +102,7 @@ export default function Home() {
     <div className="flex min-h-screen flex-col">
       <header className="sticky top-0 z-50 w-full border-b bg-black/95 backdrop-blur supports-[backdrop-filter]:bg-black/60">
         <div className="container flex h-16 items-center justify-between">
-          <div className="flex items-center font-bold text-white px-2 py-1 md:px-0 md:py-0 whitespace-nowrap text-base sm:text-lg md:text-xl" style={{lineHeight:1}}>
+          <div className="flex items-center font-bold text-white px-2 py-1 md:px-0 md:py-0 whitespace-nowrap text-base sm:text-lg md:text-xl" style={{ lineHeight: 1 }}>
             <span className="block">CZECH EAGLES MMA</span>
           </div>
           <nav className="hidden md:flex gap-6 ml-auto">
@@ -258,7 +258,7 @@ export default function Home() {
                 <div className="space-y-2">
                   <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-white">O naší tělocvičně</h2>
                   <p className="max-w-[900px] text-gray-300 md:text-xl">
-                  Czech Eagles MMA nabízí špičkové tréninky v moderním prostoru o rozloze 1000 m². Specializované zóny pro údery, grappling i silový trénink, vše v prostředí, kde se trénuje s cílem vyhrát.
+                    Czech Eagles MMA nabízí špičkové tréninky v moderním prostoru o rozloze 1000 m². Specializované zóny pro údery, grappling i silový trénink, vše v prostředí, kde se trénuje s cílem vyhrát.
                   </p>
                   <div className="flex flex-col items-center mt-6 space-y-4">
                     <p className="text-green-500 font-semibold text-lg">S podporou statutárního města Teplice</p>
@@ -720,44 +720,72 @@ export default function Home() {
             </FadeInSection>
             <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
               {/* Martin Polašek */}
-              <div className="flex flex-col rounded-xl border-2 border-lime-400 bg-black overflow-hidden shadow-lg">
-                <div className="bg-black w-full aspect-[4/3] flex items-center justify-center text-gray-400 text-4xl font-bold rounded-t-xl">
-                  <Image src="/martin.png" alt="Martin Polašek" width={360} height={240} className="object-cover w-full h-full rounded-t-xl" style={{ backgroundColor: 'black' }} />
+              <div className="flex flex-col rounded-xl border-2 border-lime-400 bg-black overflow-hidden shadow-lg transition-all duration-300 hover:border-lime-300 group">
+                <div className="relative w-full aspect-[4/3] overflow-hidden bg-neutral-900">
+                  <Image
+                    src="/martin.png"
+                    alt="Martin Polašek"
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    priority
+                  />
                 </div>
-                <div className="flex flex-col flex-1 p-6">
+                <div className="p-6 flex flex-col items-center text-center">
                   <div className="text-lime-400 font-extrabold text-2xl mb-1">Martin Polašek</div>
-                  <div className="text-gray-300 text-base mb-3">Předseda spolků</div>
+                  <div className="text-gray-300 text-base mb-4">Předseda spolků</div>
                   <div className="mt-auto text-lime-400 font-bold text-base flex items-center gap-2">
-                    <Image src="/czech-flag.svg" alt="Czech flag" width={24} height={16} className="inline-block mr-2" />
-                    Atletický veterán
+                    <div className="relative w-6 h-4">
+                      <Image src="/czech-flag.svg" alt="Czech flag" fill className="object-cover" />
+                    </div>
+                    <span>Atletický veterán</span>
                   </div>
                 </div>
               </div>
               {/* Yusup Yusupov */}
-              <div className="flex flex-col rounded-xl border-2 border-lime-400 bg-black overflow-hidden shadow-lg">
-                <div className="bg-black w-full aspect-[4/3] flex items-center justify-center text-gray-400 text-4xl font-bold rounded-t-xl">
-                  <Image src="/yusup.png" alt="Yusup Yusupov" width={360} height={240} className="object-cover w-full h-full rounded-t-xl" style={{ backgroundColor: 'black' }} />
+              <div className="flex flex-col rounded-xl border-2 border-lime-400 bg-black overflow-hidden shadow-lg transition-all duration-300 hover:border-lime-300 group">
+                <div className="relative w-full aspect-[4/3] overflow-hidden bg-neutral-900">
+                  <Image
+                    src="/yusup.png"
+                    alt="Yusup Yusupov"
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    priority
+                  />
                 </div>
-                <div className="flex flex-col flex-1 p-6">
+                <div className="p-6 flex flex-col items-center text-center">
                   <div className="text-lime-400 font-extrabold text-2xl mb-1">Yusup Yusupov</div>
-                  <div className="text-gray-300 text-base mb-3">Hlavní MMA trenér</div>
+                  <div className="text-gray-300 text-base mb-4">Hlavní MMA trenér</div>
                   <div className="mt-auto text-lime-400 font-bold text-base flex items-center gap-2">
-                    <Image src="/dagestan-flag.png" alt="Dagestan flag" width={24} height={16} className="inline-block mr-2" />
-                    MMA Veterán
+                    <div className="relative w-6 h-4">
+                      <Image src="/dagestan-flag.png" alt="Dagestan flag" fill className="object-cover" />
+                    </div>
+                    <span>MMA Veterán</span>
                   </div>
                 </div>
               </div>
               {/* Adam Bakrajev */}
-              <div className="flex flex-col rounded-xl border-2 border-lime-400 bg-black overflow-hidden shadow-lg">
-                <div className="bg-black w-full aspect-[4/3] flex items-center justify-center text-gray-400 text-4xl font-bold rounded-t-xl overflow-hidden">
-                  <Image src="/adam.png" alt="Adam Bakrajev" width={360} height={240} className="object-cover w-full h-full rounded-t-xl" style={{ backgroundColor: 'black', objectPosition: 'top', transform: 'scale(1.15)' }} />
+              <div className="flex flex-col rounded-xl border-2 border-lime-400 bg-black overflow-hidden shadow-lg transition-all duration-300 hover:border-lime-300 group">
+                <div className="relative w-full aspect-[4/3] overflow-hidden bg-neutral-900">
+                  <Image
+                    src="/adam.png"
+                    alt="Adam Bakrajev"
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    style={{ objectPosition: '50% 0%', transform: 'scale(1.15)' }}
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    priority
+                  />
                 </div>
-                <div className="flex flex-col flex-1 p-6">
+                <div className="p-6 flex flex-col items-center text-center">
                   <div className="text-lime-400 font-extrabold text-2xl mb-1">Adam Bakrajev</div>
-                  <div className="text-gray-300 text-base mb-3">Grappling specialista</div>
+                  <div className="text-gray-300 text-base mb-4">Grappling specialista</div>
                   <div className="mt-auto text-lime-400 font-bold text-base flex items-center gap-2">
-                    <Image src="/kazakhstan-flag.svg" alt="Kazakhstan flag" width={24} height={16} className="inline-block mr-2" />
-                    Národní šampion
+                    <div className="relative w-6 h-4">
+                      <Image src="/kazakhstan-flag.svg" alt="Kazakhstan flag" fill className="object-cover" />
+                    </div>
+                    <span>Národní šampion</span>
                   </div>
                 </div>
               </div>
@@ -907,15 +935,15 @@ export default function Home() {
                     {/* Social links under opening hours */}
                     <div className="flex flex-col gap-2 mt-2 mb-4">
                       <a href="https://t.me/czecheagles_mma" target="_blank" rel="noopener noreferrer" className="flex items-center group text-sm">
-                        <svg className="h-4 w-4 text-green-500 mr-2 group-hover:text-green-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M21.944 4.667a1.5 1.5 0 0 0-1.7-1.1C17.1 4.2 6.1 8.1 2.3 9.5a1.5 1.5 0 0 0-.1 2.8l3.2 1.1 2.2 6.7a1.5 1.5 0 0 0 2.3.8l3.1-2.3 3.2 2.3a1.5 1.5 0 0 0 2.3-.8l3.2-13.1a1.5 1.5 0 0 0-.1-1.1zM9.7 16.2l-2-6.1 8.7-3.5-6.7 9.6zm1.2 1.1l6.7-9.6 2.1 8.7-8.8.9zm-7.2-7.7c3.7-1.3 14.7-5.3 17.9-6.1a.5.5 0 0 1 .6.4l-3.2 13.1a.5.5 0 0 1-.8.3l-3.2-2.3-3.1 2.3a.5.5 0 0 1-.8-.3l-2.2-6.7-3.2-1.1a.5.5 0 0 1-.2-.7z"/></svg>
+                        <svg className="h-4 w-4 text-green-500 mr-2 group-hover:text-green-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M21.944 4.667a1.5 1.5 0 0 0-1.7-1.1C17.1 4.2 6.1 8.1 2.3 9.5a1.5 1.5 0 0 0-.1 2.8l3.2 1.1 2.2 6.7a1.5 1.5 0 0 0 2.3.8l3.1-2.3 3.2 2.3a1.5 1.5 0 0 0 2.3-.8l3.2-13.1a1.5 1.5 0 0 0-.1-1.1zM9.7 16.2l-2-6.1 8.7-3.5-6.7 9.6zm1.2 1.1l6.7-9.6 2.1 8.7-8.8.9zm-7.2-7.7c3.7-1.3 14.7-5.3 17.9-6.1a.5.5 0 0 1 .6.4l-3.2 13.1a.5.5 0 0 1-.8.3l-3.2-2.3-3.1 2.3a.5.5 0 0 1-.8-.3l-2.2-6.7-3.2-1.1a.5.5 0 0 1-.2-.7z" /></svg>
                         <span className="text-white">czecheagles_mma</span>
                       </a>
                       <a href="https://facebook.com/velozoteam" target="_blank" rel="noopener noreferrer" className="flex items-center group text-sm">
-                        <svg className="h-4 w-4 text-green-500 mr-2 group-hover:text-green-400 transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M22.675 0h-21.35C.595 0 0 .592 0 1.326v21.348C0 23.408.595 24 1.325 24h11.495v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.797.143v3.24l-1.918.001c-1.504 0-1.797.715-1.797 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116C23.406 24 24 23.408 24 22.674V1.326C24 .592 23.406 0 22.675 0"/></svg>
+                        <svg className="h-4 w-4 text-green-500 mr-2 group-hover:text-green-400 transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M22.675 0h-21.35C.595 0 0 .592 0 1.326v21.348C0 23.408.595 24 1.325 24h11.495v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.797.143v3.24l-1.918.001c-1.504 0-1.797.715-1.797 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116C23.406 24 24 23.408 24 22.674V1.326C24 .592 23.406 0 22.675 0" /></svg>
                         <span className="text-white">velozoteam</span>
                       </a>
                       <a href="https://instagram.com/czecheagles_mma" target="_blank" rel="noopener noreferrer" className="flex items-center group text-sm">
-                        <svg className="h-4 w-4 text-green-500 mr-2 group-hover:text-green-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><rect width="18" height="18" x="3" y="3" rx="5" stroke="currentColor" strokeWidth="2"/><circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="2"/><circle cx="17" cy="7" r="1.5" fill="currentColor"/></svg>
+                        <svg className="h-4 w-4 text-green-500 mr-2 group-hover:text-green-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><rect width="18" height="18" x="3" y="3" rx="5" stroke="currentColor" strokeWidth="2" /><circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="2" /><circle cx="17" cy="7" r="1.5" fill="currentColor" /></svg>
                         <span className="text-white">czecheagles_mma</span>
                       </a>
                     </div>
@@ -972,13 +1000,13 @@ export default function Home() {
       </main>
       <footer className="w-full border-t border-neutral-800 bg-black py-5">
         <div className="w-full bg-black py-6 flex flex-wrap justify-center items-center gap-8 mt-0">
-          <Image src="/logos/karsit.svg" alt="Karsit" height={48} width={120} style={{height:'48px',width:'auto',maxWidth:'120px'}} className="object-contain" />
-          <Image src="/logos/farmalogo.svg" alt="Farma" height={48} width={120} style={{height:'48px',width:'auto',maxWidth:'120px'}} className="object-contain" />
-          <Image src="/logos/brochierlogo.svg" alt="Brochier" height={48} width={120} style={{height:'48px',width:'auto',maxWidth:'120px'}} className="object-contain" />
-          <Image src="/logos/penaxlogo.svg" alt="Penax" height={48} width={120} style={{height:'48px',width:'auto',maxWidth:'120px'}} className="object-contain" />
-          <Image src="/logos/lupekovlogo.svg" alt="Lupekov" height={48} width={120} style={{height:'48px',width:'auto',maxWidth:'120px'}} className="object-contain" />
-          <Image src="/logos/armexlogo.svg" alt="Armex" height={48} width={120} style={{height:'48px',width:'auto',maxWidth:'120px'}} className="object-contain" />
-          <Image src="/logos/cistobox.svg" alt="Cistobox" height={48} width={120} style={{height:'48px',width:'auto',maxWidth:'120px'}} className="object-contain" />
+          <Image src="/logos/karsit.svg" alt="Karsit" height={48} width={120} style={{ height: '48px', width: 'auto', maxWidth: '120px' }} className="object-contain" />
+          <Image src="/logos/farmalogo.svg" alt="Farma" height={48} width={120} style={{ height: '48px', width: 'auto', maxWidth: '120px' }} className="object-contain" />
+          <Image src="/logos/brochierlogo.svg" alt="Brochier" height={48} width={120} style={{ height: '48px', width: 'auto', maxWidth: '120px' }} className="object-contain" />
+          <Image src="/logos/penaxlogo.svg" alt="Penax" height={48} width={120} style={{ height: '48px', width: 'auto', maxWidth: '120px' }} className="object-contain" />
+          <Image src="/logos/lupekovlogo.svg" alt="Lupekov" height={48} width={120} style={{ height: '48px', width: 'auto', maxWidth: '120px' }} className="object-contain" />
+          <Image src="/logos/armexlogo.svg" alt="Armex" height={48} width={120} style={{ height: '48px', width: 'auto', maxWidth: '120px' }} className="object-contain" />
+          <Image src="/logos/cistobox.svg" alt="Cistobox" height={48} width={120} style={{ height: '48px', width: 'auto', maxWidth: '120px' }} className="object-contain" />
         </div>
         <div className="container px-4 md:px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
@@ -1008,15 +1036,15 @@ export default function Home() {
                 {/* Social links under opening hours */}
                 <div className="flex flex-col gap-2 mt-2 mb-4">
                   <a href="https://t.me/czecheagles_mma" target="_blank" rel="noopener noreferrer" className="flex items-center group text-sm">
-                    <svg className="h-4 w-4 text-green-500 mr-2 group-hover:text-green-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M21.944 4.667a1.5 1.5 0 0 0-1.7-1.1C17.1 4.2 6.1 8.1 2.3 9.5a1.5 1.5 0 0 0-.1 2.8l3.2 1.1 2.2 6.7a1.5 1.5 0 0 0 2.3.8l3.1-2.3 3.2 2.3a1.5 1.5 0 0 0 2.3-.8l3.2-13.1a1.5 1.5 0 0 0-.1-1.1zM9.7 16.2l-2-6.1 8.7-3.5-6.7 9.6zm1.2 1.1l6.7-9.6 2.1 8.7-8.8.9zm-7.2-7.7c3.7-1.3 14.7-5.3 17.9-6.1a.5.5 0 0 1 .6.4l-3.2 13.1a.5.5 0 0 1-.8.3l-3.2-2.3-3.1 2.3a.5.5 0 0 1-.8-.3l-2.2-6.7-3.2-1.1a.5.5 0 0 1-.2-.7z"/></svg>
+                    <svg className="h-4 w-4 text-green-500 mr-2 group-hover:text-green-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M21.944 4.667a1.5 1.5 0 0 0-1.7-1.1C17.1 4.2 6.1 8.1 2.3 9.5a1.5 1.5 0 0 0-.1 2.8l3.2 1.1 2.2 6.7a1.5 1.5 0 0 0 2.3.8l3.1-2.3 3.2 2.3a1.5 1.5 0 0 0 2.3-.8l3.2-13.1a1.5 1.5 0 0 0-.1-1.1zM9.7 16.2l-2-6.1 8.7-3.5-6.7 9.6zm1.2 1.1l6.7-9.6 2.1 8.7-8.8.9zm-7.2-7.7c3.7-1.3 14.7-5.3 17.9-6.1a.5.5 0 0 1 .6.4l-3.2 13.1a.5.5 0 0 1-.8.3l-3.2-2.3-3.1 2.3a.5.5 0 0 1-.8-.3l-2.2-6.7-3.2-1.1a.5.5 0 0 1-.2-.7z" /></svg>
                     <span className="text-white">czecheagles_mma</span>
                   </a>
                   <a href="https://facebook.com/velozoteam" target="_blank" rel="noopener noreferrer" className="flex items-center group text-sm">
-                    <svg className="h-4 w-4 text-green-500 mr-2 group-hover:text-green-400 transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M22.675 0h-21.35C.595 0 0 .592 0 1.326v21.348C0 23.408.595 24 1.325 24h11.495v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.797.143v3.24l-1.918.001c-1.504 0-1.797.715-1.797 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116C23.406 24 24 23.408 24 22.674V1.326C24 .592 23.406 0 22.675 0"/></svg>
+                    <svg className="h-4 w-4 text-green-500 mr-2 group-hover:text-green-400 transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M22.675 0h-21.35C.595 0 0 .592 0 1.326v21.348C0 23.408.595 24 1.325 24h11.495v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.797.143v3.24l-1.918.001c-1.504 0-1.797.715-1.797 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116C23.406 24 24 23.408 24 22.674V1.326C24 .592 23.406 0 22.675 0" /></svg>
                     <span className="text-white">velozoteam</span>
                   </a>
                   <a href="https://instagram.com/czecheagles_mma" target="_blank" rel="noopener noreferrer" className="flex items-center group text-sm">
-                    <svg className="h-4 w-4 text-green-500 mr-2 group-hover:text-green-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><rect width="18" height="18" x="3" y="3" rx="5" stroke="currentColor" strokeWidth="2"/><circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="2"/><circle cx="17" cy="7" r="1.5" fill="currentColor"/></svg>
+                    <svg className="h-4 w-4 text-green-500 mr-2 group-hover:text-green-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><rect width="18" height="18" x="3" y="3" rx="5" stroke="currentColor" strokeWidth="2" /><circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="2" /><circle cx="17" cy="7" r="1.5" fill="currentColor" /></svg>
                     <span className="text-white">czecheagles_mma</span>
                   </a>
                 </div>
