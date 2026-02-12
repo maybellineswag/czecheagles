@@ -4,7 +4,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { ReactNode } from "react"
 
 // Use Inter font with proper subsets and display settings
-const inter = Inter({ 
+const inter = Inter({
   subsets: ["latin"],
   display: 'swap',
   variable: '--font-inter',
@@ -50,7 +50,18 @@ export const metadata = {
   },
   alternates: {
     canonical: "https://www.czecheaglesmma.cz/"
-  }
+  },
+  icons: {
+    icon: [
+      { url: "/favicon_velozo/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon_velozo/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon_velozo/favicon.ico" },
+    ],
+    apple: [
+      { url: "/favicon_velozo/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
+  manifest: "/favicon_velozo/site.webmanifest",
 }
 
 interface RootLayoutProps {
@@ -79,48 +90,52 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <meta name="twitter:image" content="/og-image.jpg" />
         <link rel="canonical" href="https://www.czecheaglesmma.cz/" />
         {/* LocalBusiness Structured Data */}
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-          '@context': 'https://schema.org',
-          '@type': 'SportsActivityLocation',
-          name: 'Czech Eagles MMA Teplice',
-          description: 'Czech Eagles MMA v Teplicích nabízí špičkové tréninky MMA, grapplingu, boxu a sebeobrany pro všechny úrovně.',
-          image: 'https://www.czecheaglesmma.cz/og-image.jpg',
-          address: {
-            '@type': 'PostalAddress',
-            streetAddress: 'Pražská 1268/121',
-            addressLocality: 'Teplice',
-            addressCountry: 'CZ',
-            postalCode: '41501',
-          },
-          telephone: '+420 603 586 073',
-          openingHours: [
-            'Mo-Fr 9:00-20:00'
-          ],
-          url: 'https://www.czecheaglesmma.cz/'
-        }) }} />
-        {/* FAQ Structured Data (example for 2 questions, add more as needed) */}
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-          '@context': 'https://schema.org',
-          '@type': 'FAQPage',
-          'mainEntity': [
-            {
-              '@type': 'Question',
-              'name': 'Potřebuji předchozí zkušenosti s bojovými sporty?',
-              'acceptedAnswer': {
-                '@type': 'Answer',
-                'text': 'Ne, vůbec ne. Naše lekce jsou navrženy pro všechny úrovně dovedností, včetně úplných začátečníků. Naši trenéři vás provedou základy a postupně budou zvyšovat intenzitu, jak se budete zlepšovat. Mnoho našich nejlepších bojovníků začínalo bez jakýchkoliv předchozích zkušeností.'
-              }
+        <script type="application/ld+json" dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'SportsActivityLocation',
+            name: 'Czech Eagles MMA Teplice',
+            description: 'Czech Eagles MMA v Teplicích nabízí špičkové tréninky MMA, grapplingu, boxu a sebeobrany pro všechny úrovně.',
+            image: 'https://www.czecheaglesmma.cz/og-image.jpg',
+            address: {
+              '@type': 'PostalAddress',
+              streetAddress: 'Pražská 1268/121',
+              addressLocality: 'Teplice',
+              addressCountry: 'CZ',
+              postalCode: '41501',
             },
-            {
-              '@type': 'Question',
-              'name': 'Jaké vybavení potřebuji pro první trénink?',
-              'acceptedAnswer': {
-                '@type': 'Answer',
-                'text': 'Pro první trénink stačí sportovní oblečení, ve kterém se můžete pohodlně pohybovat (tričko a sportovní kraťasy), ručník a láhev s vodou. Pro grappling doporučujeme přiléhavější oblečení. Pokud se rozhodnete pokračovat, poradíme vám s nákupem vhodného vybavení jako jsou rukavice, chrániče nebo gi (kimono).'
+            telephone: '+420 603 586 073',
+            openingHours: [
+              'Mo-Fr 9:00-20:00'
+            ],
+            url: 'https://www.czecheaglesmma.cz/'
+          })
+        }} />
+        {/* FAQ Structured Data (example for 2 questions, add more as needed) */}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            'mainEntity': [
+              {
+                '@type': 'Question',
+                'name': 'Potřebuji předchozí zkušenosti s bojovými sporty?',
+                'acceptedAnswer': {
+                  '@type': 'Answer',
+                  'text': 'Ne, vůbec ne. Naše lekce jsou navrženy pro všechny úrovně dovedností, včetně úplných začátečníků. Naši trenéři vás provedou základy a postupně budou zvyšovat intenzitu, jak se budete zlepšovat. Mnoho našich nejlepších bojovníků začínalo bez jakýchkoliv předchozích zkušeností.'
+                }
+              },
+              {
+                '@type': 'Question',
+                'name': 'Jaké vybavení potřebuji pro první trénink?',
+                'acceptedAnswer': {
+                  '@type': 'Answer',
+                  'text': 'Pro první trénink stačí sportovní oblečení, ve kterém se můžete pohodlně pohybovat (tričko a sportovní kraťasy), ručník a láhev s vodou. Pro grappling doporučujeme přiléhavější oblečení. Pokud se rozhodnete pokračovat, poradíme vám s nákupem vhodného vybavení jako jsou rukavice, chrániče nebo gi (kimono).'
+                }
               }
-            }
-          ]
-        }) }} />
+            ]
+          })
+        }} />
       </head>
       <body className={`${inter.className} font-sans`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
