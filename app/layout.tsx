@@ -53,14 +53,15 @@ export const metadata = {
   },
   icons: {
     icon: [
+      { url: "/favicon.ico", sizes: "any" },
       { url: "/favicon_velozo/favicon-16x16.png", sizes: "16x16", type: "image/png" },
       { url: "/favicon_velozo/favicon-32x32.png", sizes: "32x32", type: "image/png" },
       { url: "/favicon_velozo/android-chrome-192x192.png", sizes: "192x192", type: "image/png" },
-      { url: "/favicon_velozo/favicon.ico" },
     ],
     apple: [
-      { url: "/favicon_velozo/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
     ],
+    shortcut: "/favicon.ico",
   },
   manifest: "/favicon_velozo/site.webmanifest",
 }
@@ -75,6 +76,12 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* Favicon - explicit links for Safari compatibility */}
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon_velozo/favicon-16x16.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon_velozo/favicon-32x32.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         {/* SEO meta tags */}
         <meta name="keywords" content="MMA Teplice, MMA tělocvična Teplice, grappling Teplice, trénink MMA Teplice, sebeobrana Teplice, Czech Eagles MMA" />
         <meta name="robots" content="index, follow" />
