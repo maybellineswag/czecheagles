@@ -52,6 +52,7 @@ export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [openBenefit, setOpenBenefit] = useState<number | null>(null)
   const [isMobile, setIsMobile] = useState(false)
+  const [modalOpen, setModalOpen] = useState(false)
   // Contact form state
   const [form, setForm] = useState({
     firstName: '',
@@ -88,6 +89,10 @@ export default function Home() {
       if (data.ok) {
         setFormStatus('success')
         setForm({ firstName: '', lastName: '', email: '', phone: '', interest: '', message: '' })
+        setTimeout(() => {
+          setModalOpen(false)
+          setFormStatus('idle')
+        }, 2000)
       } else {
         setFormStatus('error')
         setFormError(data?.errors?.[0]?.message || 'Nastala chyba při odesílání. Zkuste to prosím znovu.')
@@ -100,12 +105,99 @@ export default function Home() {
 
   return (
     <div className="flex min-h-screen flex-col">
+      {/* Contact Form Modal */}
+      <Dialog open={modalOpen} onOpenChange={setModalOpen}>
+        <DialogContent className="bg-neutral-900 border-green-600 text-white max-w-md">
+          <DialogTitle className="text-2xl font-bold text-green-500 mb-2">Kontaktujte nás</DialogTitle>
+          <div className="flex items-center gap-2 mb-4">
+            <Phone className="h-4 w-4 text-green-500" />
+            <a href="tel:+420603586073" className="text-green-500 hover:underline font-semibold">
+              +420 603 586 073
+            </a>
+          </div>
+          <form className="space-y-3" onSubmit={handleFormSubmit}>
+            <div className="grid grid-cols-2 gap-2">
+              <Input
+                name="firstName"
+                value={form.firstName}
+                onChange={handleFormChange}
+                required
+                placeholder="Jméno"
+                className="bg-neutral-800 border-neutral-700 text-white text-sm h-9"
+              />
+              <Input
+                name="lastName"
+                value={form.lastName}
+                onChange={handleFormChange}
+                required
+                placeholder="Příjmení"
+                className="bg-neutral-800 border-neutral-700 text-white text-sm h-9"
+              />
+            </div>
+            <Input
+              name="email"
+              type="email"
+              value={form.email}
+              onChange={handleFormChange}
+              required
+              placeholder="Email"
+              className="bg-neutral-800 border-neutral-700 text-white text-sm h-9"
+            />
+            <Input
+              name="phone"
+              type="tel"
+              value={form.phone}
+              onChange={handleFormChange}
+              required
+              placeholder="Telefon"
+              className="bg-neutral-800 border-neutral-700 text-white text-sm h-9"
+            />
+            <select
+              name="interest"
+              value={form.interest}
+              onChange={handleFormChange}
+              required
+              className="w-full px-3 py-1 bg-neutral-800 border border-neutral-700 rounded-md text-gray-400 text-sm h-9 appearance-none cursor-pointer"
+              style={{ backgroundImage: 'none' }}
+            >
+              <option value="">Vyberte zájem</option>
+              <option value="mma">MMA trénink</option>
+              <option value="bjj">Brazilské Jiu-Jitsu</option>
+              <option value="boxing">Box</option>
+              <option value="muay-thai">Muay Thai</option>
+              <option value="wrestling">Zápas</option>
+            </select>
+            <Textarea
+              name="message"
+              value={form.message}
+              onChange={handleFormChange}
+              required
+              placeholder="Zpráva"
+              className="min-h-[80px] bg-neutral-800 border-neutral-700 text-white text-sm"
+            />
+            <Button
+              type="submit"
+              className="w-full bg-green-600 hover:bg-green-700 text-white text-sm h-9"
+              disabled={formStatus === 'submitting'}
+            >
+              {formStatus === 'submitting' ? 'Odesílání...' : 'Odeslat'}
+            </Button>
+            {formStatus === 'success' && (
+              <div className="text-green-500 text-sm pt-2">Děkujeme za zprávu! Ozveme se vám co nejdříve.</div>
+            )}
+            {formStatus === 'error' && (
+              <div className="text-red-500 text-sm pt-2">{formError}</div>
+            )}
+          </form>
+        </DialogContent>
+      </Dialog>
+
       <header className="sticky top-0 z-50 w-full border-b bg-black/95 backdrop-blur supports-[backdrop-filter]:bg-black/60">
-        <div className="container flex h-16 items-center justify-between">
+        <div className="max-w-6xl mx-auto px-6 sm:px-12 md:px-16 lg:px-24 flex h-16 items-center justify-between">
           <div className="flex items-center font-bold text-white px-2 py-1 md:px-0 md:py-0 whitespace-nowrap text-base sm:text-lg md:text-xl" style={{ lineHeight: 1 }}>
             <span className="block">CZECH EAGLES MMA</span>
           </div>
-          <nav className="hidden md:flex gap-6 ml-auto">
+          <nav className="hidden md:flex items-center gap-6 ml-auto">
             <Link href="#about" className="text-sm font-medium text-white transition-colors hover:text-green-500">
               O nás
             </Link>
@@ -130,6 +222,13 @@ export default function Home() {
             <Link href="#contact" className="text-sm font-medium text-white transition-colors hover:text-green-500">
               Kontakt
             </Link>
+            <Button
+              onClick={() => setModalOpen(true)}
+              size="sm"
+              className="ml-4 bg-green-600 hover:bg-green-700 text-white font-bold"
+            >
+              Rezervovat
+            </Button>
           </nav>
           <div className="flex items-center gap-4">
             <button
@@ -149,7 +248,7 @@ export default function Home() {
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden bg-black border-t border-neutral-800"
           >
-            <div className="container py-4 flex flex-col space-y-4">
+            <div className="max-w-6xl mx-auto px-6 sm:px-12 md:px-16 lg:px-24 py-4 flex flex-col space-y-4">
               <Link
                 href="#about"
                 className="text-white py-2 hover:text-green-500"
@@ -199,6 +298,15 @@ export default function Home() {
               >
                 Kontakt
               </Link>
+              <Button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  setModalOpen(true);
+                }}
+                className="w-full bg-green-600 hover:bg-green-700 text-white font-bold mt-2"
+              >
+                Rezervovat trénink
+              </Button>
             </div>
           </motion.div>
         )}
@@ -218,7 +326,7 @@ export default function Home() {
             </video>
           </div>
           <motion.div
-            className="container px-4 sm:px-6 md:px-8 z-20 text-center"
+            className="max-w-7xl mx-auto px-12 md:px-8 z-20 text-center -mt-8 sm:-mt-16"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -242,9 +350,9 @@ export default function Home() {
                   transformujte své tělo i mysl.
                 </p>
               </div>
-              <div className="pt-4 sm:pt-6 flex justify-center">
-                <Button asChild size="sm" className="bg-green-600 hover:bg-green-700 text-white w-auto mx-auto text-sm sm:text-base md:text-lg px-6 py-3 md:px-8 md:py-6 mt-4">
-                  <a href="#contact-form">Rezervujte si první trénink ještě dnes</a>
+              <div className="flex justify-center">
+                <Button onClick={() => setModalOpen(true)} size="sm" className="bg-green-600 hover:bg-green-700 text-white w-auto mx-auto text-sm sm:text-base md:text-lg px-6 py-3 md:px-8 md:py-6 mt-4">
+                  Rezervujte si první trénink ještě dnes
                 </Button>
               </div>
             </div>
@@ -252,7 +360,7 @@ export default function Home() {
         </section>
 
         <section id="about" className="w-full py-12 md:py-24 lg:py-32 bg-neutral-900">
-          <div className="container px-4 md:px-6">
+          <div className="max-w-6xl mx-auto px-6 sm:px-12 md:px-16 lg:px-24">
             <FadeInSection>
               <div className="flex flex-col items-center justify-center space-y-4 text-center">
                 <div className="space-y-2">
@@ -288,8 +396,8 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="schedule" className="w-full py-12 md:py-24 lg:py-32 bg-neutral-900">
-          <div className="container px-4 md:px-6">
+        <section id="schedule" className="w-full py-12 md:py-24 lg:py-32 bg-black">
+          <div className="max-w-6xl mx-auto px-6 sm:px-12 md:px-16 lg:px-24">
             <FadeInSection>
               <div className="flex flex-col items-center justify-center space-y-4 text-center">
                 <div className="space-y-2">
@@ -513,15 +621,99 @@ export default function Home() {
               </Tabs>
             </div>
             <div className="flex justify-center mt-12">
-              <Button asChild size="lg" className="bg-green-600 hover:bg-green-700 text-white">
-                <a href="#contact-form">Rezervujte si první lekci</a>
+              <Button onClick={() => setModalOpen(true)} size="lg" className="bg-green-600 hover:bg-green-700 text-white">
+                Rezervujte si první lekci
               </Button>
             </div>
           </div>
         </section>
 
+        <section id="trainers" className="w-full py-12 md:py-24 lg:py-32 bg-neutral-900">
+          <div className="max-w-6xl mx-auto px-6 sm:px-12 md:px-16 lg:px-24">
+            <FadeInSection>
+              <div className="flex flex-col items-center justify-center space-y-4 text-center">
+                <div className="space-y-2">
+                  <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-white">Profesionální trenéři</h2>
+                  <p className="max-w-2xl mx-auto text-gray-300 text-xl mt-2">
+                    Náš tým se skládá ze zkušených bojovníků a certifikovaných koučů, kteří se věnují vašemu pokroku a bezpečnosti.
+                  </p>
+                </div>
+              </div>
+            </FadeInSection>
+            <div className="mt-12 flex flex-row flex-wrap items-center justify-center gap-3 sm:gap-8 max-w-6xl mx-auto px-2 sm:px-4 text-center">
+              {/* Martin Polašek */}
+              <div className="w-[calc(50%-12px)] md:w-1/3 max-w-[170px] sm:max-w-[280px] flex flex-col rounded-xl border border-green-500/50 bg-black overflow-hidden shadow-2xl transition-all duration-300 hover:border-green-500 h-full">
+                <div className="relative w-full aspect-[4/5] bg-neutral-900 overflow-hidden">
+                  <Image
+                    src="/martin.png"
+                    alt="Martin Polašek"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 45vw, 280px"
+                    priority
+                  />
+                </div>
+                <div className="flex flex-col p-3 sm:p-5 bg-neutral-900/50 flex-grow">
+                  <div className="text-green-500 font-extrabold text-[11px] sm:text-base mb-0.5 tracking-tight uppercase italic md:not-italic md:normal-case">Martin Polašek</div>
+                  <div className="text-gray-400 text-[9px] sm:text-xs mb-2 leading-tight">Předseda spolků</div>
+                  <div className="mt-auto pt-2 border-t border-neutral-800 text-green-500 font-bold text-[9px] sm:text-xs flex items-center justify-center gap-1">
+                    <Image src="/czech-flag.svg" alt="Czech flag" width={14} height={10} className="inline-block" />
+                    <span className="hidden sm:inline">Atletický veterán</span>
+                    <span className="sm:hidden text-[8px]">Veterán</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Yusup Yusupov */}
+              <div className="w-[calc(50%-12px)] md:w-1/3 max-w-[170px] sm:max-w-[280px] flex flex-col rounded-xl border border-green-500/50 bg-black overflow-hidden shadow-2xl transition-all duration-300 hover:border-green-500 h-full">
+                <div className="relative w-full aspect-[4/5] bg-neutral-900 overflow-hidden">
+                  <Image
+                    src="/yusup.png"
+                    alt="Yusup Yusupov"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 45vw, 280px"
+                  />
+                </div>
+                <div className="flex flex-col p-3 sm:p-5 bg-neutral-900/50 flex-grow">
+                  <div className="text-green-500 font-extrabold text-[11px] sm:text-base mb-0.5 tracking-tight uppercase italic md:not-italic md:normal-case">Yusup Yusupov</div>
+                  <div className="text-gray-400 text-[9px] sm:text-xs mb-2 leading-tight">Hlavní MMA trenér</div>
+                  <div className="mt-auto pt-2 border-t border-neutral-800 text-green-500 font-bold text-[9px] sm:text-xs flex items-center justify-center gap-1">
+                    <Image src="/dagestan-flag.png" alt="Dagestan flag" width={14} height={10} className="inline-block" />
+                    <span className="hidden sm:inline">MMA Veterán</span>
+                    <span className="sm:hidden text-[8px]">Veterán</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Adam Bakrajev */}
+              <div className="w-[calc(50%-12px)] md:w-1/3 max-w-[170px] sm:max-w-[280px] flex flex-col rounded-xl border border-green-500/50 bg-black overflow-hidden shadow-2xl transition-all duration-300 hover:border-green-500 h-full">
+                <div className="relative w-full aspect-[4/5] bg-neutral-900 overflow-hidden">
+                  <Image
+                    src="/adam.png"
+                    alt="Adam Bakrajev"
+                    fill
+                    className="object-cover"
+                    style={{ objectPosition: 'top', transform: 'scale(1.15)' }}
+                    sizes="(max-width: 768px) 45vw, 280px"
+                  />
+                </div>
+                <div className="flex flex-col p-3 sm:p-5 bg-neutral-900/50 flex-grow">
+                  <div className="text-green-500 font-extrabold text-[11px] sm:text-base mb-0.5 tracking-tight uppercase italic md:not-italic md:normal-case">Adam Bakrajev</div>
+                  <div className="text-gray-400 text-[9px] sm:text-xs mb-2 leading-tight">Grappling specialista</div>
+                  <div className="mt-auto pt-2 border-t border-neutral-800 text-green-500 font-bold text-[9px] sm:text-xs flex items-center justify-center gap-1">
+                    <Image src="/kazakhstan-flag.svg" alt="Kazakhstan flag" width={14} height={10} className="inline-block" />
+                    <span className="hidden sm:inline">Národní šampion</span>
+                    <span className="sm:hidden text-[8px]">Šampion</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section id="benefits" className="w-full py-12 md:py-24 lg:py-32 bg-black">
-          <div className="container px-4 md:px-6">
+          <div className="max-w-6xl mx-auto px-6 sm:px-12 md:px-16 lg:px-24">
             <FadeInSection>
               <div className="flex flex-col items-center justify-center space-y-4 text-center">
                 <div className="space-y-2">
@@ -617,7 +809,7 @@ export default function Home() {
         </section>
 
         <section id="testimonials" className="w-full py-12 md:py-24 lg:py-32 bg-neutral-900">
-          <div className="container px-4 md:px-6">
+          <div className="max-w-6xl mx-auto px-6 sm:px-12 md:px-16 lg:px-24">
             <FadeInSection>
               <div className="flex flex-col items-center justify-center space-y-4 text-center">
                 <div className="space-y-2">
@@ -628,173 +820,82 @@ export default function Home() {
                 </div>
               </div>
             </FadeInSection>
-            <div className="grid grid-cols-1 gap-y-2 md:gap-6 mt-12 md:grid-cols-2 lg:grid-cols-3">
+            <div className="flex flex-col gap-4 mt-12 max-w-4xl mx-auto">
               <FadeInSection delay={0.1}>
-                <Card className="bg-neutral-900 border-green-600 text-white flex flex-col rounded-xl p-4 sm:p-6 max-w-full h-full mb-0 md:mb-4 md:min-h-[420px]">
-                  <CardHeader className="h-full">
-                    <div className="flex items-center gap-4">
-                      <div className="rounded-full bg-green-600 w-12 h-12 flex items-center justify-center text-white font-bold text-base sm:text-lg aspect-square">
-                        JN
+                <Card className="bg-neutral-800 border-green-600 text-white rounded-xl p-4">
+                  <div className="flex gap-4">
+                    <div className="rounded-full bg-green-600 w-12 h-12 flex items-center justify-center text-white font-bold text-sm shrink-0">
+                      JN
+                    </div>
+                    <div className="flex-1">
+                      <div className="flex items-baseline justify-between mb-2">
+                        <h3 className="text-white font-bold text-base">Jan Novák</h3>
+                        <span className="text-gray-400 text-xs">Člen 2 roky</span>
                       </div>
-                      <div>
-                        <CardTitle className="text-white text-lg sm:text-xl leading-tight">Jan Novák</CardTitle>
-                        <CardDescription className="text-gray-400 text-xs sm:text-sm">Člen 2 roky</CardDescription>
+                      <p className="italic text-sm text-gray-300 leading-relaxed mb-2">
+                        "Když jsem poprvé přišel, byl jsem mimo formu a nervózní, ale trenéři mě od prvního dne přijali.
+                        Teď jsem v nejlepší formě svého života a našel jsem si přátele na celý život. Czech Eagles MMA
+                        změnilo můj život."
+                      </p>
+                      <div className="flex text-yellow-500 text-sm">
+                        <span>★★★★★</span>
                       </div>
                     </div>
-                  </CardHeader>
-                  <CardContent className="flex-grow flex flex-col justify-between mt-2 h-full">
-                    <p className="italic text-sm sm:text-base leading-relaxed mb-4">
-                      "Když jsem poprvé přišel, byl jsem mimo formu a nervózní, ale trenéři mě od prvního dne přijali.
-                      Teď jsem v nejlepší formě svého života a našel jsem si přátele na celý život. Czech Eagles MMA
-                      změnilo můj život."
-                    </p>
-                    <div className="flex mt-2 text-yellow-500 text-lg">
-                      <span>★★★★★</span>
-                    </div>
-                  </CardContent>
+                  </div>
                 </Card>
               </FadeInSection>
               <FadeInSection delay={0.2}>
-                <Card className="bg-neutral-900 border-green-600 text-white flex flex-col rounded-xl p-4 sm:p-6 max-w-full h-full mb-0 md:mb-4 md:min-h-[420px]">
-                  <CardHeader className="h-full">
-                    <div className="flex items-center gap-4">
-                      <div className="rounded-full bg-green-600 w-12 h-12 flex items-center justify-center text-white font-bold text-base sm:text-lg aspect-square">
-                        KP
+                <Card className="bg-neutral-800 border-green-600 text-white rounded-xl p-4">
+                  <div className="flex gap-4">
+                    <div className="rounded-full bg-green-600 w-12 h-12 flex items-center justify-center text-white font-bold text-sm shrink-0">
+                      KP
+                    </div>
+                    <div className="flex-1">
+                      <div className="flex items-baseline justify-between mb-2">
+                        <h3 className="text-white font-bold text-base">Kateřina Pospíšilová</h3>
+                        <span className="text-gray-400 text-xs">Členka 1 rok</span>
                       </div>
-                      <div>
-                        <CardTitle className="text-white text-lg sm:text-xl leading-tight">Jan Novak</CardTitle>
-                        <CardDescription className="text-gray-400 text-xs sm:text-sm">Členka 1 rok</CardDescription>
+                      <p className="italic text-sm text-gray-300 leading-relaxed mb-2">
+                        "Jako žena jsem váhala s připojením k MMA tělocvičně, ale Czech Eagles byli neuvěřitelně vstřícní.
+                        Dovednosti sebeobrany, které jsem se naučila, mi dodaly sebevědomí a tréninky jsou úžasné!"
+                      </p>
+                      <div className="flex text-yellow-500 text-sm">
+                        <span>★★★★★</span>
                       </div>
                     </div>
-                  </CardHeader>
-                  <CardContent className="flex-grow flex flex-col justify-between mt-2 h-full">
-                    <p className="italic text-sm sm:text-base leading-relaxed mb-4">
-                      "Jako žena jsem váhala s připojením k MMA tělocvičně, ale Czech Eagles byli neuvěřitelně vstřícní.
-                      Dovednosti sebeobrany, které jsem se naučila, mi dodaly sebevědomí a tréninky jsou úžasné!"
-                    </p>
-                    <div className="flex mt-2 text-yellow-500 text-lg">
-                      <span>★★★★★</span>
-                    </div>
-                  </CardContent>
+                  </div>
                 </Card>
               </FadeInSection>
               <FadeInSection delay={0.3}>
-                <Card className="bg-neutral-900 border-green-600 text-white flex flex-col rounded-xl p-4 sm:p-6 max-w-full h-full mb-0 md:mb-4 md:min-h-[420px]">
-                  <CardHeader className="h-full">
-                    <div className="flex items-center gap-4">
-                      <div className="rounded-full bg-green-600 w-12 h-12 flex items-center justify-center text-white font-bold text-base sm:text-lg aspect-square">
-                        MK
+                <Card className="bg-neutral-800 border-green-600 text-white rounded-xl p-4">
+                  <div className="flex gap-4">
+                    <div className="rounded-full bg-green-600 w-12 h-12 flex items-center justify-center text-white font-bold text-sm shrink-0">
+                      MK
+                    </div>
+                    <div className="flex-1">
+                      <div className="flex items-baseline justify-between mb-2">
+                        <h3 className="text-white font-bold text-base">Martin Kovář</h3>
+                        <span className="text-gray-400 text-xs">Člen 3 roky</span>
                       </div>
-                      <div>
-                        <CardTitle className="text-white text-lg sm:text-xl leading-tight">Martin Kovář</CardTitle>
-                        <CardDescription className="text-gray-400 text-xs sm:text-sm">Člen 3 roky</CardDescription>
+                      <p className="italic text-sm text-gray-300 leading-relaxed mb-2">
+                        "Trénoval jsem v několika tělocvičnách po celé Evropě a Czech Eagles MMA vyniká svým
+                        profesionálním koučováním a přátelskou atmosférou. Technické instrukce jsou světové úrovně."
+                      </p>
+                      <div className="flex text-yellow-500 text-sm">
+                        <span>★★★★★</span>
                       </div>
                     </div>
-                  </CardHeader>
-                  <CardContent className="flex-grow flex flex-col justify-between mt-2 h-full">
-                    <p className="italic text-sm sm:text-base leading-relaxed mb-4">
-                      "Trénoval jsem v několika tělocvičnách po celé Evropě a Czech Eagles MMA vyniká svým
-                      profesionálním koučováním a přátelskou atmosférou. Technické instrukce jsou světové úrovně."
-                    </p>
-                    <div className="flex mt-2 text-yellow-500 text-lg">
-                      <span>★★★★★</span>
-                    </div>
-                  </CardContent>
+                  </div>
                 </Card>
               </FadeInSection>
             </div>
           </div>
         </section>
 
-        <section id="trainers" className="w-full py-12 md:py-24 lg:py-32 bg-black">
-          <div className="container px-4 md:px-6">
-            <FadeInSection>
-              <div className="flex flex-col items-center justify-center space-y-4 text-center">
-                <div className="space-y-2">
-                  <h2 className="text-5xl font-extrabold text-white">Profesionální trenéři</h2>
-                  <p className="max-w-2xl mx-auto text-gray-300 text-xl mt-2">
-                    Náš tým se skládá ze zkušených bojovníků a certifikovaných koučů, kteří se věnují vašemu pokroku a bezpečnosti.
-                  </p>
-                </div>
-              </div>
-            </FadeInSection>
-            <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
-              {/* Martin Polašek */}
-              <div className="flex flex-col rounded-xl border-2 border-lime-400 bg-black overflow-hidden shadow-lg transition-all duration-300 hover:border-lime-300 group">
-                <div className="relative w-full aspect-[4/3] overflow-hidden bg-neutral-900">
-                  <Image
-                    src="/martin.png"
-                    alt="Martin Polašek"
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                    priority
-                  />
-                </div>
-                <div className="p-6 flex flex-col items-center text-center">
-                  <div className="text-lime-400 font-extrabold text-2xl mb-1">Martin Polašek</div>
-                  <div className="text-gray-300 text-base mb-4">Předseda spolků</div>
-                  <div className="mt-auto text-lime-400 font-bold text-base flex items-center gap-2">
-                    <div className="relative w-6 h-4">
-                      <Image src="/czech-flag.svg" alt="Czech flag" fill className="object-cover" />
-                    </div>
-                    <span>Atletický veterán</span>
-                  </div>
-                </div>
-              </div>
-              {/* Yusup Yusupov */}
-              <div className="flex flex-col rounded-xl border-2 border-lime-400 bg-black overflow-hidden shadow-lg transition-all duration-300 hover:border-lime-300 group">
-                <div className="relative w-full aspect-[4/3] overflow-hidden bg-neutral-900">
-                  <Image
-                    src="/yusup.png"
-                    alt="Yusup Yusupov"
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                    priority
-                  />
-                </div>
-                <div className="p-6 flex flex-col items-center text-center">
-                  <div className="text-lime-400 font-extrabold text-2xl mb-1">Yusup Yusupov</div>
-                  <div className="text-gray-300 text-base mb-4">Hlavní MMA trenér</div>
-                  <div className="mt-auto text-lime-400 font-bold text-base flex items-center gap-2">
-                    <div className="relative w-6 h-4">
-                      <Image src="/dagestan-flag.png" alt="Dagestan flag" fill className="object-cover" />
-                    </div>
-                    <span>MMA Veterán</span>
-                  </div>
-                </div>
-              </div>
-              {/* Adam Bakrajev */}
-              <div className="flex flex-col rounded-xl border-2 border-lime-400 bg-black overflow-hidden shadow-lg transition-all duration-300 hover:border-lime-300 group">
-                <div className="relative w-full aspect-[4/3] overflow-hidden bg-neutral-900">
-                  <Image
-                    src="/adam.png"
-                    alt="Adam Bakrajev"
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
-                    style={{ objectPosition: '50% 0%', transform: 'scale(1.15)' }}
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                    priority
-                  />
-                </div>
-                <div className="p-6 flex flex-col items-center text-center">
-                  <div className="text-lime-400 font-extrabold text-2xl mb-1">Adam Bakrajev</div>
-                  <div className="text-gray-300 text-base mb-4">Grappling specialista</div>
-                  <div className="mt-auto text-lime-400 font-bold text-base flex items-center gap-2">
-                    <div className="relative w-6 h-4">
-                      <Image src="/kazakhstan-flag.svg" alt="Kazakhstan flag" fill className="object-cover" />
-                    </div>
-                    <span>Národní šampion</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+
 
         <section id="faq" className="w-full py-12 md:py-24 lg:py-32 bg-black">
-          <div className="container px-4 md:px-6">
+          <div className="max-w-6xl mx-auto px-6 sm:px-12 md:px-16 lg:px-24">
             <FadeInSection>
               <div className="flex flex-col items-center justify-center space-y-4 text-center">
                 <div className="space-y-2">
@@ -896,8 +997,8 @@ export default function Home() {
                 </Accordion>
               </FadeInSection>
               <div className="flex justify-center mt-12">
-                <Button asChild size="lg" className="bg-green-600 hover:bg-green-700 text-white">
-                  <a href="#contact-form">Máte další otázky? Kontaktujte nás</a>
+                <Button onClick={() => setModalOpen(true)} size="lg" className="bg-green-600 hover:bg-green-700 text-white">
+                  Máte další otázky? Kontaktujte nás
                 </Button>
               </div>
             </div>
@@ -905,7 +1006,7 @@ export default function Home() {
         </section>
 
         <section id="contact" className="w-full py-12 md:py-24 lg:py-32 bg-neutral-900">
-          <div className="container px-4 md:px-6">
+          <div className="max-w-6xl mx-auto px-6 sm:px-12 md:px-16 lg:px-24">
             <div className="grid gap-10 px-10 md:gap-16 lg:grid-cols-2">
               <FadeInSection>
                 <div className="space-y-4">
@@ -972,18 +1073,17 @@ export default function Home() {
                     <p className="text-gray-300 mt-2">Parkování je k dispozici před naší budovou.</p>
                   </div>
                   <div className="pt-4">
-                    <Button asChild size="lg" className="bg-green-600 hover:bg-green-700 text-white">
-                      <a href="#contact-form">Naplánujte si návštěvu</a>
+                    <Button onClick={() => setModalOpen(true)} size="lg" className="bg-green-600 hover:bg-green-700 text-white">
+                      Naplánujte si návštěvu
                     </Button>
                   </div>
                 </div>
               </FadeInSection>
               <FadeInSection delay={0.2}>
                 <div className="relative h-[300px] overflow-hidden rounded-lg">
-                  {/* Mapy.cz embed placeholder - replace src with the correct Mapy.cz embed URL later */}
                   <iframe
-                    title="Mapa - Czech Eagles MMA Teplice (Mapy.cz)"
-                    src="https://frame.mapy.cz/s/placeholder" // TODO: Replace with actual Mapy.cz embed URL
+                    title="Mapa - Arena 68 Teplice (Google Maps)"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2530.5622356614126!2d13.845072999999998!3d50.6352486!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47098ee4de984c87%3A0xf84337bf1847255c!2sArena%2068!5e0!3m2!1scs!2scz!4v1770862383270!5m2!1scs!2scz"
                     width="100%"
                     height="100%"
                     style={{ border: 0, width: '100%', height: '100%' }}
@@ -1008,7 +1108,7 @@ export default function Home() {
           <Image src="/logos/armexlogo.svg" alt="Armex" height={48} width={120} style={{ height: '48px', width: 'auto', maxWidth: '120px' }} className="object-contain" />
           <Image src="/logos/cistobox.svg" alt="Cistobox" height={48} width={120} style={{ height: '48px', width: 'auto', maxWidth: '120px' }} className="object-contain" />
         </div>
-        <div className="container px-4 md:px-6">
+        <div className="max-w-6xl mx-auto px-6 sm:px-12 md:px-16 lg:px-24">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
             <div className="space-y-4">
               <div className="flex items-center gap-2 font-bold text-xl text-white">
