@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://velozoteam.cz
+
+# Sitemaps
+Sitemap: https://velozoteam.cz/sitemap.xml

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style type="text/css">
+      html, body, #mapDiv {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="mapDiv"></div>
+      
+    <script nonce="s__ST0hHItg8mYPnF75cIw">
+      function onEmbedLoad() {
+        initEmbed([null,null,null,null,null,[[[2,"spotlit",null,null,null,null,null,[null,null,null,null,null,null,null,null,null,null,11,null,[null,null,null,null,null,null,null,null,null,null,null,null,null,1]]]],null,null,[[null,null,null,null,null,null,null,null,null,null,null,null,null,[[["0","15844744724260495511"],"/fake_latlng_mid",null,[506352619,138450753],null,null,null,1],0,null,null,null,0,null,0]]]],null,["en_US"],[null,null,null,"/maps/api/js/ApplicationService.GetEntityDetails","/maps/embed/upgrade204",null,"/maps/embed/record204"],null,null,null,null,null,null,null,null,"6MiLZ5u7LMSii-gPhZypuQ8",null,null,null,[[[2530.561445295842,13.8450753,50.6352619],[0,0,0],null,13.10000038146973],17,null,[[null,"50°38'06.9\"N 13°50'42.3\"E",[50.6352619,13.8450753]],"50°38'06.9\"N 13°50'42.3\"E",["50.635262, 13.845075"],null,null,null,null,null,null,null,null,null,null,"JRPW+424 Teplice",null,null,null,null,null,null,null,null,null,1,null,null,null,null,null,null,"0ahUKEwibz4STy_-KAxVE0QIHHQVOKvcQ8BcIAygA",null,null,null,null,null,null,null,["0ahUKEwibz4STy_-KAxVE0QIHHQVOKvcQqtMBCAcoAw",["9F2MJRPW+424"],["JRPW+424 Teplice"],1]]],null,null,null,0,null,null,null,null,null,null,[1]]);
+      }
+      function onApiLoad() {
+        var embed = document.createElement('script');
+        embed.src = "https://maps.gstatic.com/maps-api-v3/embed/js/59/5/init_embed.js";
+        document.body.appendChild(embed);
+      }
+    </script>
+    <link rel="preload" href="https://maps.gstatic.com/maps-api-v3/embed/js/59/5/init_embed.js" nonce="s__ST0hHItg8mYPnF75cIw" as="script" />
+    <script src="https://maps.googleapis.com/maps/api/js?client=google-maps-embed&amp;paint_origin=&amp;libraries=geometry,search&amp;v=weekly&amp;loading=async&amp;language=en_US&amp;callback=onApiLoad" nonce="s__ST0hHItg8mYPnF75cIw" async defer></script>
+  </body>
+</html>
