@@ -1,9 +1,4 @@
-# *
 User-agent: *
 Allow: /
 
-# Host
-Host: https://your-domain.com
-
-# Sitemaps
-Sitemap: https://your-domain.com/sitemap.xml
+Sitemap: https://www.czecheaglesmma.cz/sitemap.xml
