@@ -465,24 +465,13 @@ export default function Home() {
                       <Calendar className="mr-2 h-5 w-5" /> Úterý
                     </h3>
                     <div className="grid gap-4">
-                      <div className="flex justify-between items-center border-b border-neutral-700 pb-2">
-                        <div>
-                          <h4 className="font-medium">Grappling děti</h4>
-                          <p className="text-sm text-gray-400">Od 6 do 14 let</p>
-                        </div>
-                        <div className="flex items-center">
-                          <Clock className="mr-2 h-4 w-4 text-green-500" />
-                          <span>16:00 - 17:00</span>
-                        </div>
-                      </div>
                       <div className="flex justify-between items-center">
                         <div>
                           <h4 className="font-medium">MMA kadeti, junioři, dospělí</h4>
-                          <p className="text-sm text-gray-400">Od 15 let</p>
                         </div>
                         <div className="flex items-center">
                           <Clock className="mr-2 h-4 w-4 text-green-500" />
-                          <span>17:00 - 18:30</span>
+                          <span>16:00 - 17:40</span>
                         </div>
                       </div>
                     </div>
@@ -497,7 +486,7 @@ export default function Home() {
                       <Calendar className="mr-2 h-5 w-5" /> Středa
                     </h3>
                     <div className="grid gap-4">
-                      <div className="flex justify-between items-center">
+                      <div className="flex justify-between items-center border-b border-neutral-700 pb-2">
                         <div>
                           <h4 className="font-medium">Otevřená žíněnka</h4>
                           <p className="text-sm text-gray-400">Všichni členové</p>
@@ -505,6 +494,15 @@ export default function Home() {
                         <div className="flex items-center">
                           <Clock className="mr-2 h-4 w-4 text-green-500" />
                           <span>9:00 - 20:00</span>
+                        </div>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <div>
+                          <h4 className="font-medium">Sparringy</h4>
+                        </div>
+                        <div className="flex items-center">
+                          <Clock className="mr-2 h-4 w-4 text-green-500" />
+                          <span>16:00 - 18:00</span>
                         </div>
                       </div>
                     </div>
@@ -519,24 +517,13 @@ export default function Home() {
                       <Calendar className="mr-2 h-5 w-5" /> Čtvrtek
                     </h3>
                     <div className="grid gap-4">
-                      <div className="flex justify-between items-center border-b border-neutral-700 pb-2">
-                        <div>
-                          <h4 className="font-medium">Grappling děti</h4>
-                          <p className="text-sm text-gray-400">Od 6 do 14 let</p>
-                        </div>
-                        <div className="flex items-center">
-                          <Clock className="mr-2 h-4 w-4 text-green-500" />
-                          <span>16:00 - 17:00</span>
-                        </div>
-                      </div>
                       <div className="flex justify-between items-center">
                         <div>
                           <h4 className="font-medium">MMA kadeti, junioři, dospělí</h4>
-                          <p className="text-sm text-gray-400">Od 15 let</p>
                         </div>
                         <div className="flex items-center">
                           <Clock className="mr-2 h-4 w-4 text-green-500" />
-                          <span>17:00 - 18:30</span>
+                          <span>16:00 - 17:40</span>
                         </div>
                       </div>
                     </div>
@@ -573,24 +560,13 @@ export default function Home() {
                       <Calendar className="mr-2 h-5 w-5" /> Sobota
                     </h3>
                     <div className="grid gap-4">
-                      <div className="flex justify-between items-center border-b border-neutral-700 pb-2">
-                        <div>
-                          <h4 className="font-medium">Grappling děti</h4>
-                          <p className="text-sm text-gray-400">Od 6 do 14 let</p>
-                        </div>
-                        <div className="flex items-center">
-                          <Clock className="mr-2 h-4 w-4 text-green-500" />
-                          <span>16:00 - 17:00</span>
-                        </div>
-                      </div>
                       <div className="flex justify-between items-center">
                         <div>
                           <h4 className="font-medium">MMA kadeti, junioři, dospělí</h4>
-                          <p className="text-sm text-gray-400">Od 15 let</p>
                         </div>
                         <div className="flex items-center">
                           <Clock className="mr-2 h-4 w-4 text-green-500" />
-                          <span>17:00 - 18:30</span>
+                          <span>16:00 - 17:40</span>
                         </div>
                       </div>
                     </div>
