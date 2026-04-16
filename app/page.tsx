@@ -621,7 +621,7 @@ export default function Home() {
               <div className="w-[calc(50%-12px)] md:w-1/3 max-w-[170px] sm:max-w-[280px] flex flex-col rounded-xl border border-green-500/50 bg-black overflow-hidden shadow-2xl transition-all duration-300 hover:border-green-500 h-full">
                 <div className="relative w-full aspect-[4/5] bg-neutral-900 overflow-hidden">
                   <Image
-                    src="/martin.png"
+                    src="/martin.jpg"
                     alt="Martin Polašek"
                     fill
                     className="object-cover"
@@ -644,7 +644,7 @@ export default function Home() {
               <div className="w-[calc(50%-12px)] md:w-1/3 max-w-[170px] sm:max-w-[280px] flex flex-col rounded-xl border border-green-500/50 bg-black overflow-hidden shadow-2xl transition-all duration-300 hover:border-green-500 h-full">
                 <div className="relative w-full aspect-[4/5] bg-neutral-900 overflow-hidden">
                   <Image
-                    src="/yusup.png"
+                    src="/yusup.jpg"
                     alt="Yusup Yusupov"
                     fill
                     className="object-cover"
@@ -666,7 +666,7 @@ export default function Home() {
               <div className="w-[calc(50%-12px)] md:w-1/3 max-w-[170px] sm:max-w-[280px] flex flex-col rounded-xl border border-green-500/50 bg-black overflow-hidden shadow-2xl transition-all duration-300 hover:border-green-500 h-full">
                 <div className="relative w-full aspect-[4/5] bg-neutral-900 overflow-hidden">
                   <Image
-                    src="/adam.png"
+                    src="/adam.jpg"
                     alt="Adam Bakrajev"
                     fill
                     className="object-cover"
