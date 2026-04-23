@@ -370,25 +370,61 @@ export default function Home() {
                   </p>
                   <div className="flex flex-col items-center mt-6 space-y-4">
                     <p className="text-green-500 font-semibold text-lg">S podporou statutárního města Teplice</p>
-                    <Dialog>
-                      <DialogTrigger asChild>
-                        <Button variant="outline" className="border-green-600 text-white hover:bg-green-700/20">
-                          Zobrazit dokument
-                        </Button>
-                      </DialogTrigger>
-                      <DialogContent className="sm:max-w-[800px] bg-neutral-900 border-green-600 max-w-xs w-full p-2 sm:p-6 max-h-[80vh] overflow-auto">
-                        <DialogTitle className="sr-only">Dokument podpory města Teplice</DialogTitle>
-                        <div className="relative w-full h-[60vw] min-h-[200px] max-h-[60vh] sm:h-[600px] sm:max-h-[600px] mx-auto">
-                          <Image
-                            src="/document-image.jpg"
-                            alt="Dokument podpory města Teplice"
-                            fill
-                            className="object-contain"
-                            sizes="(max-width: 640px) 90vw, 600px"
-                          />
-                        </div>
-                      </DialogContent>
-                    </Dialog>
+                    <div className="flex flex-row items-center justify-center gap-4 sm:gap-6 mt-6">
+                      {/* Document 1 */}
+                      <Dialog>
+                        <DialogTrigger asChild>
+                          <div className="cursor-pointer transition-transform hover:scale-105 border border-green-600/30 hover:border-green-600 rounded-lg overflow-hidden shadow-lg bg-neutral-800 h-40 sm:h-64">
+                            <Image 
+                              src="/document.jpg" 
+                              alt="Dokument podpory města Teplice 1" 
+                              width={486} 
+                              height={640} 
+                              className="h-full w-auto object-contain"
+                            />
+                          </div>
+                        </DialogTrigger>
+                        <DialogContent className="sm:max-w-[800px] bg-neutral-900 border-green-600 max-w-xs w-full p-2 sm:p-6 max-h-[90vh] overflow-auto">
+                          <DialogTitle className="sr-only">Dokument podpory města Teplice 1</DialogTitle>
+                          <div className="relative w-full h-[70vh] mx-auto">
+                            <Image
+                              src="/document.jpg"
+                              alt="Dokument podpory města Teplice 1"
+                              fill
+                              className="object-contain"
+                              sizes="(max-width: 640px) 90vw, 800px"
+                            />
+                          </div>
+                        </DialogContent>
+                      </Dialog>
+
+                      {/* Document 2 */}
+                      <Dialog>
+                        <DialogTrigger asChild>
+                          <div className="cursor-pointer transition-transform hover:scale-105 border border-green-600/30 hover:border-green-600 rounded-lg overflow-hidden shadow-lg bg-neutral-800 h-40 sm:h-64">
+                            <Image 
+                              src="/document-image.jpg" 
+                              alt="Dokument podpory města Teplice 2" 
+                              width={911} 
+                              height={640} 
+                              className="h-full w-auto object-contain"
+                            />
+                          </div>
+                        </DialogTrigger>
+                        <DialogContent className="sm:max-w-[800px] bg-neutral-900 border-green-600 max-w-xs w-full p-2 sm:p-6 max-h-[90vh] overflow-auto">
+                          <DialogTitle className="sr-only">Dokument podpory města Teplice 2</DialogTitle>
+                          <div className="relative w-full h-[70vh] mx-auto">
+                            <Image
+                              src="/document-image.jpg"
+                              alt="Dokument podpory města Teplice 2"
+                              fill
+                              className="object-contain"
+                              sizes="(max-width: 640px) 90vw, 800px"
+                            />
+                          </div>
+                        </DialogContent>
+                      </Dialog>
+                    </div>
                   </div>
                 </div>
               </div>
