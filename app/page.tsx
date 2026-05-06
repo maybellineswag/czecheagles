@@ -80,13 +80,16 @@ export default function Home() {
     setFormStatus('submitting')
     setFormError('')
     try {
-      const res = await fetch('https://formspree.io/f/xeogwnyg', {
+      const formData = new FormData(e.currentTarget)
+      const payload = Object.fromEntries(formData.entries())
+      
+      const res = await fetch('https://hook.eu1.make.com/v237g46b3ukv9ljrf6fjsmrhrg87wmah', {
         method: 'POST',
-        headers: { 'Accept': 'application/json' },
-        body: new FormData(e.currentTarget)
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
       })
-      const data = await res.json()
-      if (data.ok) {
+      
+      if (res.ok) {
         setFormStatus('success')
         setForm({ firstName: '', lastName: '', email: '', phone: '', interest: '', message: '' })
         setTimeout(() => {
@@ -95,7 +98,7 @@ export default function Home() {
         }, 2000)
       } else {
         setFormStatus('error')
-        setFormError(data?.errors?.[0]?.message || 'Nastala chyba při odesílání. Zkuste to prosím znovu.')
+        setFormError('Nastala chyba při odesílání. Zkuste to prosím znovu.')
       }
     } catch (err) {
       setFormStatus('error')
