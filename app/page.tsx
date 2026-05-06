@@ -1038,7 +1038,7 @@ export default function Home() {
                       <span className="text-white text-sm">Pražská 1268/121, Teplice 415 01</span>
                     </div>
                     <div className="flex items-center">
-                      <span className="text-lime-400 text-sm font-semibold">Velozo Team, spolek, IČ 063 65 639</span>
+                      <span className="text-lime-400 text-sm font-semibold">Team Arena 68, spolek, IČ 063 65 639</span>
                     </div>
                     <div className="flex items-center">
                       <Phone className="mr-2 h-4 w-4 text-green-500" />
@@ -1138,7 +1138,7 @@ export default function Home() {
                   <span className="text-white text-sm">Pražská 1268/121, Teplice 415 01</span>
                 </div>
                 <div className="flex items-center">
-                  <span className="text-lime-400 text-sm font-semibold">Velozo Team, spolek, IČ 063 65 639</span>
+                  <span className="text-lime-400 text-sm font-semibold">Team Arena 68, spolek, IČ 063 65 639</span>
                 </div>
                 <div className="flex items-center">
                   <Phone className="mr-2 h-4 w-4 text-green-500" />
